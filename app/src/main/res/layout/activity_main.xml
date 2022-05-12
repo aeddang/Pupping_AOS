@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brand_primaryStrong"
+    tools:context=".MainActivity">
+    <FrameLayout
+        android:id="@+id/areaTop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+    <com.raftgroup.pupping.scene.component.tab.BottomTab
+        android:id="@+id/bottomTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="-64dp"
+        />
+    <View
+        android:id="@+id/dimed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent_black45"
+        />
+    <com.skeleton.component.progressbar.MultiStrokeSpinner
+        android:id="@+id/loadingSpinnerLock"
+        android:layout_width="@dimen/loading_bar_large"
+        android:layout_height="@dimen/loading_bar_large"
+        android:layout_gravity="center"/>
+    <com.skeleton.component.progressbar.MultiStrokeSpinner
+        android:id="@+id/loadingSpinner"
+        android:layout_width="@dimen/loading_bar"
+        android:layout_height="@dimen/loading_bar"
+        android:layout_marginBottom="@dimen/app_safe_bottom"
+        android:layout_gravity="bottom|center_horizontal"/>
+</FrameLayout>

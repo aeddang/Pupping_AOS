@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PageUIStyle">
+        <attr name="android:radius" />
+        <attr name="android:title" />
+        <attr name="android:text" />
+        <attr name="android:gravity" />
+        <attr name="selected" format="boolean" />
+        <attr name="defaultTextColor" format="color" />
+        <attr name="activeTextColor" format="color" />
+        <attr name="defaultTextSize" format="dimension" />
+        <attr name="activeTextSize" format="dimension" />
+        <attr name="defaultImage" format="reference" />
+        <attr name="activeImage" format="reference" />
+        <attr name="defaultBgColor" format="color" />
+        <attr name="activeBgColor" format="color" />
+        <attr name="strokeColor" format="color"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="activeStrokeColor" format="color"/>
+        <attr name="activeStrokeWidth" format="dimension"/>
+        <attr name="shadowColor" format="color"/>
+        <attr name="shadowX" format="dimension"/>
+        <attr name="shadowY" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="PageButtonStyle">
+        <attr name="buttonType" format="enum" >
+            <enum name="normal" value="0"/>
+            <enum name="stroke" value="1"/>
+            <enum name="small" value="2"/>
+            <enum name="underLine" value="3"/>
+            <enum name="select" value="4"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="PageTitleStyle">
+        <attr name="titleType" format="enum" >
+            <enum name="normal" value="0"/>
+            <enum name="add" value="1"/>
+            <enum name="modify" value="2"/>
+            <enum name="more" value="3"/>
+        </attr>
+    </declare-styleable>
+</resources>

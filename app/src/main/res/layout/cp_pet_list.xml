@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <com.raftgroup.pupping.scene.component.tab.TitleTab
+        android:id="@+id/titleTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="@string/titleMyDogs"
+        app:titleType= "add"
+        />
+    <include
+        android:id="@+id/listView"
+        layout="@layout/ui_horizontal_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <com.skeleton.component.view.RoundView
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:radius="@dimen/radius_light"
+        android:layout_marginHorizontal="@dimen/margin_light"
+        android:layout_marginTop="@dimen/margin_light"
+        android:visibility="gone"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_whiteDeepExtra"
+            android:padding="@dimen/margin_thin"
+            >
+            <ImageView
+                android:src="@drawable/img_emtpy_dog_profile_card"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                style="@style/fontMedium"
+                android:text="@string/profileRegistGuide"
+                android:textSize="@dimen/font_thin"
+                android:textColor="@color/app_grey"
+                android:layout_marginLeft="@dimen/margin_thin"
+                />
+        </LinearLayout>
+    </com.skeleton.component.view.RoundView>
+
+</LinearLayout>

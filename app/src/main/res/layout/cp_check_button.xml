@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    >
+    <ImageView
+        android:id="@+id/imageIcon"
+        android:src="@drawable/ic_check"
+        android:layout_width="@dimen/icon_tiny"
+        android:layout_height="@dimen/icon_tiny"
+        android:scaleType="fitCenter"
+        />
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        style="@style/fontSemiBold"
+        android:textSize="@dimen/font_thinExtra"
+        tools:text="Check"
+        android:textColor="@color/app_grey"
+        android:textAlignment="textStart"
+        android:layout_marginLeft="@dimen/margin_thin"
+        />
+</LinearLayout>

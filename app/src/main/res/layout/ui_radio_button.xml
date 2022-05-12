@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/margin_light"
+        >
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/fontSemiBold"
+            android:textSize="@dimen/font_thin"
+            tools:text="Check"
+            android:textColor="@color/app_grey"
+            android:textAlignment="textStart"
+            />
+        <ImageView
+            android:id="@+id/imageIcon"
+            android:src="@drawable/ic_check"
+            android:layout_width="@dimen/icon_mediumLight"
+            android:layout_height="@dimen/icon_mediumLight"
+            android:scaleType="fitCenter"
+            />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ef_ripple_rt_blank"/>
+</FrameLayout>

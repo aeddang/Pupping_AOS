@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:width="109dp"
+        android:height="131dp"
+        android:drawable="@drawable/ic_splash_logo"
+        android:gravity="center"
+        tools:ignore="UnusedAttribute" />
+</layer-list>

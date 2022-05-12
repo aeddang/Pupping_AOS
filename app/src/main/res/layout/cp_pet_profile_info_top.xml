@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        style="@style/fontBold"
+        android:textSize="@dimen/font_boldExtra"
+        tools:text="dalja"
+        android:textColor="@color/app_greyDeep"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    
+    <com.raftgroup.pupping.scene.component.info.PetProfileDescription
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textName"
+        />
+
+    <FrameLayout
+        android:id="@+id/graphArea"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="@dimen/margin_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <TextView
+        android:id="@+id/textLv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        style="@style/fontBold"
+        android:textSize="@dimen/font_light"
+        tools:text="Lv 1"
+        android:textColor="@color/brand_primary"
+        app:layout_constraintStart_toStartOf="@id/graphArea"
+        app:layout_constraintEnd_toEndOf="@id/graphArea"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:includeFontPadding="false"
+        />
+    <TextView
+        android:id="@+id/textExp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        style="@style/fontBold"
+        android:textSize="@dimen/font_micro"
+        tools:text="100exp"
+        android:textColor="@color/app_greyExtra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:includeFontPadding="false"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.skeleton.component.view.RoundView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:radius="@dimen/radius_light"
+    android:background="@color/app_white"
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/img"
+            android:src="@drawable/img_picture_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            />
+        <ImageView
+            android:id="@+id/strokeBorder"
+            android:src="@drawable/sp_rect_round_dash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            />
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ef_ripple_rt_blank"
+            />
+    </FrameLayout>
+
+    <com.raftgroup.pupping.scene.component.button.FavoriteButton
+        android:id="@+id/favoriteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:translationZ="1dp"
+        android:layout_margin="@dimen/margin_thin"
+        />
+</com.skeleton.component.view.RoundView>
+

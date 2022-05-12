@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <com.raftgroup.pupping.scene.component.tab.TitleTab
+        android:id="@+id/titleTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="@string/titleAlbum"
+        app:titleType= "more"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="216dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/margin_lightHalf"
+        />
+</LinearLayout>

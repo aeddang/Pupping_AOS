@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "995723781166",
+    "project_id": "pupping-bero",
+    "storage_bucket": "pupping-bero.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995723781166:android:821fd06e83c5969dda2bbf",
+        "android_client_info": {
+          "package_name": "com.raftgroup.pupping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995723781166-78q8hgekjbik3jrsm25abegs8u7v726q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raftgroup.pupping",
+            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+          }
+        },
+        {
+          "client_id": "995723781166-rvt98rnhq5gh8necg2lvvo0che32ea77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSQnZvkVGpom0AOPOcDi57tXpmUzsbiDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995723781166-rvt98rnhq5gh8necg2lvvo0che32ea77.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "995723781166-hfhj5pnmfhglrkanponjkapgna4vuhuj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ironraft.Pupping"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

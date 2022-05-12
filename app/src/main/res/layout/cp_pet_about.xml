@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:id="@+id/vaccinateBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/margin_light"
+        android:layout_marginBottom="@dimen/margin_medium"
+        />
+    <com.raftgroup.pupping.scene.component.tab.TitleTab
+        android:id="@+id/titleRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="@string/profileHealthRecord"
+        app:titleType= "modify"
+        />
+    <com.skeleton.component.button.FillButton
+        android:id="@+id/btnRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="@string/profileHealthRecordUpdate"
+        app:buttonType= "stroke"
+        android:layout_marginHorizontal="@dimen/margin_light"
+        />
+    <LinearLayout
+        android:id="@+id/recordBody"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/margin_light"
+        >
+        <com.raftgroup.pupping.scene.component.info.ValueBox
+            android:id="@+id/recordWeight"
+            android:layout_weight="1"
+            android:title="@string/weight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <Space
+            android:layout_width="@dimen/margin_thin"
+            android:layout_height="wrap_content"/>
+        <com.raftgroup.pupping.scene.component.info.ValueBox
+            android:id="@+id/recordSize"
+            android:layout_weight="1"
+            android:title="@string/size"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,275 @@
+<resources>
+    <string name="app_id" translatable="false">com.raftgroup.pupping</string>
+    <string name="ios_id" translatable="false">com.ironraft.Pupping</string>
+    <!-- For Fdl -->
+    <string name="fdl_domain" translatable="false">raftgroup.com</string>
+    <string name="fdl_link" translatable="false">raftgroup.page.link</string>
+    <string name="fdl_link_path" translatable="false">https://raftgroup.page.link/</string>
+
+    <!-- For Fcm -->
+    <string name="default_notification_channel_name" translatable="false">RaftGroup</string>
+    <string name="default_notification_channel_id" translatable="false">1</string>
+    <string name="fcm_title" translatable="false">RaftGroup notice</string>
+
+    <!-- For FB -->
+    <string name="facebook_app_id" translatable="false">220296493447625</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb220296493447625</string>
+    <string name="facebook_client_token" translatable="false">05f0f39fc3fdd406d8f9f30abaf4799e</string>
+
+    <string name="appName">Pupping</string>
+    <string name="noticeAppExit">한번 더 누르면 종료됩니다</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+    <string name="close">Close</string>
+
+    <string name="male">male</string>
+    <string name="female">female</string>
+
+    <string name="puppingCoin">Pupping</string>
+    <string name="point">Point</string>
+    <string name="mission">Mission</string>
+    <string name="walk">Walk</string>
+    <string name="year">YY</string>
+    <string name="month">MM</string>
+    <string name="day">DD</string>
+    <string name="step">step</string>
+    <string name="of">of</string>
+
+    <string name="kmPerH">km/h</string>
+    <string name="km">km</string>
+    <string name="m">m</string>
+    <string name="min">분</string>
+    <string name="redeem">Redeem</string>
+    <string name="kg">kg</string>
+
+
+    <string name="filter">filter</string>
+    <string name="near">near</string>
+
+    <string name="weight">Weight</string>
+    <string name="size">Size</string>
+    <string name="owner">\'s</string>
+
+    /*
+    Button
+    */
+    <string name="btnView">View</string>
+    <string name="btnAlbum">Album</string>
+    <string name="btnCamera">Camera</string>
+    <string name="btnDelete">Delete</string>
+    <string name="btnNext">Next</string>
+    <string name="btnPrev">Back</string>
+    <string name="btnComplete">Complete</string>
+    <string name="btnModify">Modify</string>
+    <string name="btnSwapPupping">Swap to Pupping</string>
+    <string name="btnStart">Start</string>
+    <string name="btnPreview">Preview</string>
+
+    <string name="btnStop">Finish</string>
+    <string name="btnPause">Stop</string>
+    <string name="btnResume">Walk</string>
+    <string name="btnMore">See More</string>
+
+    <string name="btnPictureCertification">Photo verification and reward</string>
+
+    /*
+    Alert
+    */
+    <string name="alertApns">Pupping notification</string>
+    <string name="alertApi">Pupping notification</string>
+    <string name="alertApiErrorServer">Connection lost. Please try again later.</string>
+    <string name="alertApiErrorClient">Please check the internet connection and try again.</string>
+    <string name="alertNetworkError">Your internet connection is unstable.</string>
+    <string name="alertDataError">No data.</string>
+
+    <string name="alertLocation">Please allow location access.</string>
+    <string name="alertLocationSub">According to Apple\'s policy, you must allow location access to send us your locatoin.</string>
+    <string name="alertLocationBtn">Go to grant permission</string>
+    <string name="alertLocationDisable">Unable to get location information. try again?</string>
+    <string name="alertLocationFind">Retrieving location information. Please wait.</string>
+    <string name="alertDragdown">Pull to close this page</string>
+
+    <string name="alertNeedProfile">Add your dog</string>
+    <string name="alertDeleteProfile">All related data will be deleted. Are you sure you want to delete this dog’s profile?</string>
+
+    <string name="alertSnsLoginError">After login. Available.</string>
+    <string name="alertCurrentPlayMission">This mission is currently being performed.</string>
+    <string name="alertCurrentPlay">Please proceed after completing the current mission.</string>
+    <string name="alertPrevPlayMission">Mission in progress.\nAre you sure you want to quit and start a new mission?</string>
+    <string name="alertPrevPlayWalk">End your walk and start a new mission?</string>
+    <string name="alertClosePlayMission">Do you want to end the mission?\nAll unsaved information will be erased.</string>
+    <string name="alertClosePlayWalk">Are you sure you want to end your walk?\nYou must walk at least %sm to receive a reward.</string>
+    <string name="alertNeedProfileRegist">Don\'t have a dog with you?\nPlease register your dog before using it.</string>
+    <string name="alertSelectProfile">Please select a dog to accompany</string>
+
+    <string name="alertCompletedNeedPicture">Need picture with your Dog.</string>
+    <string name="alertCompletedNeedPictureError">Need picture with your Dog. retry.</string>
+    <string name="alertCompletedExitConfirm">If you exit without receiving a mission reward, the completed mission record will not be saved. Are you sure you want to quit?</string>
+
+    <string name="alertNeedInput">Please fill in the required fields.</string>
+    <string name="alertCoinSwap">Coins are charged.</string>
+    <string name="alertPointEmpty">Point Not enough.</string>
+
+
+    /*
+    Gnb
+    */
+    <string name="gnbMission">Mission</string>
+    <string name="gnbBoard">Board</string>
+    <string name="gnbShop">Shop</string>
+    <string name="gnbExplore">Explore</string>
+    <string name="gnbMy">My</string>
+    <string name="gnbWalk">Walk</string>
+
+    /*
+    Location
+    */
+    <string name="locationNotFound">Where Are You?</string>
+
+    /*
+    PartTitle
+    */
+    <string name="titleMy">My</string>
+    <string name="titleExplore">Explore</string>
+    <string name="titleEditProfile">Edit Profile</string>
+    <string name="titleMyRewards">My Rewards</string>
+    <string name="titleMyDogs">My Dogs</string>
+    <string name="titleCommingSoon">Coming soon</string>
+    <string name="titleMission">Start Mission</string>
+    <string name="titleMissionInfo">Preview Mission</string>
+    <string name="titleHistory">History</string>
+    <string name="titleAlbum">Album</string>
+    <string name="titleWalkReport">Walk Report</string>
+    /*
+    PageIntro
+    */
+    <string name="introText1_1">Walk your dog\nwith fun missions.</string>
+    <string name="introText1_2">Walking dogs never been this\nfun! Explore new routes with\nthe daily and monthly missions.</string>
+    <string name="introText2_1">Earn Encrypted\nCoins as you walk.</string>
+    <string name="introText2_2">Walk your dog and earn\nfinancial rewards. The coins are\ndesignated to your dog!</string>
+    <string name="introText3_1">Make a local dog\ncommunity.</string>
+    <string name="introText3_2">Find new local dog friends to\nwalk with and share\ninformation.</string>
+    <string name="introComplete">Let’s explore!</string>
+
+
+    /*
+    PageLogin
+    */
+    <string name="loginText">Let’s walk\nour dogs together!</string>
+    <string name="loginStart">Let’s Start!</string>
+
+
+
+    /*
+    PageProfile
+    */
+    <string name="profileRegistNickName">What is the nickname?</string>
+    <string name="profileRegistImage">profile picture.</string>
+    <string name="profileRegistName">What is the name\nof your dog?</string>
+    <string name="profileRegistNameTip">-Max. 15 characters.</string>
+    <string name="profileRegistSpecies">breed.</string>
+    <string name="profileRegistBirth">birthday.</string>
+    <string name="profileRegistGender">sex.</string>
+    <string name="profileRegistHealth">health &amp; immunization.</string>
+    <string name="profileRegistMicroFin">animal ID or a microchip number.</string>
+    <string name="profileRegistMicroFinInfo">An animal ID is consisted of 15 digits.\nTake your pet to be scanned at the local vet,\nrescue centre or dog wardens service.</string>
+
+    <string name="profileRegistWeight">’s weight(kg).</string>
+    <string name="profileRegistSize">’s size(m).</string>
+
+    <string name="profileRegistNeutralized">Neutralized</string>
+    <string name="profileRegistDistemperVaccinated">Distemper Vaccinated</string>
+    <string name="profileRegistHepatitisVaccinated">Hepatitis Vaccinated</string>
+    <string name="profileRegistParovirusVaccinated">Parovirus Vaccinated</string>
+    <string name="profileRegistRabiesVaccinated">Rabies Vaccinated</string>
+
+    <string name="profileCancelConfirm">If you cancel the registration, the information being created will be lost. Do you want to cancel?</string>
+    <string name="profileEmptyName">animal</string>
+    <string name="profileEmptySpecies">animal</string>
+    <string name="profileOption">Skip for now</string>
+    <string name="profileCheckAll">Check ALL options.</string>
+
+    <string name="profileNickNamePlaceHolder">Nickname here</string>
+    <string name="profileNamePlaceHolder">Name here</string>
+    <string name="profileSpeciesPlaceHolder">ex. Maltese</string>
+    <string name="profileMicroFinPlaceHolder">ex.123456789012345</string>
+
+
+    <string name="profileWalkHistory">Walk History</string>
+    <string name="profileMissionHistory">Mission History</string>
+    <string name="profileHealthCare">Health Care</string>
+    <string name="profileHealthRecord">Health Record</string>
+
+    <string name="profileHistory">History</string>
+    <string name="profileHistoryTotalWalk">%s walks in total</string>
+    <string name="profileHistoryTotalMission">%s missions in total</string>
+    <string name="profileHistoryTotalRecord">%s in total</string>
+
+    <string name="profileAbout">About</string>
+    <string name="profileLastUpdate">Last updated on</string>
+    <string name="profileHealthRecordUpdate">Update health record</string>
+    <string name="profileRegistGuide">You haven’t added a dog yet. Press + button to add your dog!</string>
+    /*
+    PageMission
+    */
+    <string name="missionCompleted">Mission Complete!</string>
+    <string name="missionCompletedText">Walk your dog for %s mins.</string>
+    <string name="missionCompletedSaved">Mission saved.</string>
+
+    <string name="missionStartGuide">Please proceed to the starting point indicated on the map.</string>
+    <string name="missionPointGuide">Please proceed to the next destination.</string>
+    <string name="missionPointEndGuide">Please go to your last destination.</string>
+
+    /*
+    PageWalk
+    */
+    <string name="walkCompleted">Walk Complete!</string>
+    <string name="walkCompletedText">Walk your dog for %s mins.</string>
+    <string name="walkCompletedSaved">Walk saved.</string>
+
+    /*
+    PageWalkReport
+    */
+
+
+    <string name="reportWalkSummaryDuration">Total. Time</string>
+    <string name="reportWalkSummaryDistance">Total. Distance</string>
+    <string name="reportWalkSummary">Walk Summary</string>
+    <string name="reportWalkSummaryWeekly">Weekly</string>
+    <string name="reportWalkSummaryMonthly">Monthly</string>
+
+    <string name="reportWalkDayUnit">days</string>
+    <string name="reportWalkDayText">You’ve walked</string>
+    <string name="reportWalkDayTextWeek">in total this week.</string>
+    <string name="reportWalkDayTextMonth">in total this month.</string>
+
+    <string name="reportWalkDayCompleted">You achieved the goal! Good job!</string>
+    <string name="reportWalkDayContinue">Walk %s days</string>
+
+    <string name="reportWalkDayCompareText1">This is</string>
+    <string name="reportWalkDayCompareText2">as the average of others.</string>
+    <string name="reportWalkDayCompareLess">day less.</string>
+    <string name="reportWalkDayCompareMore">day more.</string>
+    <string name="reportWalkDayCompareSame">just the same.</string>
+
+    <string name="reportWalkDayCompareMe">Me</string>
+    <string name="reportWalkDayCompareOthers">Others</string>
+
+    <string name="reportWalkRecentlyUnit">mins</string>
+    <string name="reportWalkRecentlyText1">Your recently walked</string>
+    <string name="reportWalkRecentlyText2">in average for each walk.</string>
+
+    <string name="reportWalkRecentlyTip">The recommended time for each walk\nis between 20–40 mins.</string>
+
+    /*
+    MissionPlay
+    */
+    <string name="playAround">Take a look around</string>
+    <string name="playLocation">Find nearby facilities</string>
+    <string name="playSpeed">speed up</string>
+    <string name="playEndurance">build endurance</string>
+
+
+</resources>

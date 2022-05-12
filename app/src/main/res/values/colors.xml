@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryLight">#FFC940</color>
+    <color name="colorPrimary">#FF981F</color>
+    <color name="colorPrimaryDark">#F48808</color>
+    <color name="colorAccent">#F48808</color>
+
+    <color name="brand_primaryStrong">#F48808</color>
+    <color name="brand_primary">#FF981F</color>
+    <color name="brand_primaryExtra">#FFF1E5</color>
+    <color name="brand_primaryLight">#FFC940</color>
+    <color name="brand_secondary">#00C673</color>
+    <color name="brand_secondaryExtra">#62C996</color>
+    <color name="brand_thirdly">#F2270B</color>
+    <color name="brand_thirdlyExtra">#40F2270B</color>
+    <color name="brand_fourth">#0A84FF</color>
+    <color name="brand_fourthExtra">#88A1FB</color>
+    <color name="brand_fiveth">#FF7448</color>
+    <color name="brand_bg">#f5f5f5</color>
+
+    <color name="app_black">#000</color>
+    <color name="app_grey">#70757E</color>
+    <color name="app_greyExtra">#A7ABB5</color>
+    <color name="app_greyDeep">#333333</color>
+    <color name="app_greyLight">#D8D8E1</color>
+    <color name="app_greyLightExtra">#E5E7EB</color>
+    <color name="app_white">#FFF</color>
+    <color name="app_whiteDeep">#F9F9FA</color>
+    <color name="app_whiteDeepExtra">#F1F2F5</color>
+
+    <color name="app_blueFB">#3578E5</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="transparent_black30">#50000000</color>
+    <color name="transparent_black45">#70000000</color>
+    <color name="transparent_black70">#aa000000</color>
+    <color name="transparent_black80">#cc000000</color>
+    <color name="transparent_white30">#50FFFFFF</color>
+    <color name="transparent_white45">#70FFFFFF</color>
+    <color name="transparent_white70">#aaFFFFFF</color>
+    <color name="transparent_white80">#ccFFFFFF</color>
+</resources>
