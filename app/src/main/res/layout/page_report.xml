@@ -82,7 +82,7 @@
                     android:id="@+id/duration"
                     app:defaultImage="@drawable/ic_time"
                     app:defaultTextColor="@color/brand_primary"
-                    app:defaultBgColor="@color/brand_bg"
+                    app:defaultBgColor="@color/transparent"
                     android:title="@string/reportWalkSummaryDuration"
                     android:gravity="left"
                     android:layout_weight="1"
@@ -92,7 +92,7 @@
                     android:id="@+id/distance"
                     app:defaultImage="@drawable/ic_walk"
                     app:defaultTextColor="@color/brand_primary"
-                    app:defaultBgColor="@color/brand_bg"
+                    app:defaultBgColor="@color/transparent"
                     android:title="@string/reportWalkSummaryDistance"
                     android:layout_weight="1"
                     android:gravity="left"
@@ -132,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
                 />
-            <FrameLayout
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_light"
                 android:layout_marginTop="@dimen/margin_medium"
@@ -145,6 +145,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
                 />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_light"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@color/app_greyLight"
+                android:alpha="0.4"
+                />
+            <com.raftgroup.pupping.scene.component.info.LineGraph
+                android:id="@+id/walkAvg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

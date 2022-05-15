@@ -7,30 +7,35 @@ import android.graphics.Shader
 import android.util.Size
 import android.view.ViewGroup
 import androidx.annotation.ColorRes
+import com.lib.util.ComponentLog
 
 class GraphBuilder {
 
     private val appTag = "GraphBuilder"
 
-    private lateinit var graph:Graph
+    lateinit var graph:Graph; private set
     private var type:Graph.Type
 
     constructor(type:Graph.Type) {
         this.type = type
     }
-    constructor(parent:ViewGroup, params:ViewGroup.LayoutParams, type:Graph.Type) {
+    constructor(parent:ViewGroup, params:ViewGroup.LayoutParams, type:Graph.Type, isResizeObserver:Boolean = true) {
         this.type = type
         graph = makeGraph(parent.context)
-        graph.viewTreeObserver?.addOnGlobalLayoutListener{
-            setSize(Size(params.width, params.height), isImmediately = false)
+        if (isResizeObserver) {
+            graph.viewTreeObserver?.addOnGlobalLayoutListener {
+                setSize(Size(params.width, params.height), isImmediately = false)
+            }
         }
         parent.addView(graph, params)
     }
-    constructor(parent:ViewGroup,  type:Graph.Type) {
+    constructor(parent:ViewGroup,  type:Graph.Type, isResizeObserver:Boolean = true) {
         this.type = type
         graph = makeGraph(parent.context)
-        graph.viewTreeObserver?.addOnGlobalLayoutListener{
-            setSize(Size(parent.width, parent.height), isImmediately = false)
+        if (isResizeObserver) {
+            graph.viewTreeObserver?.addOnGlobalLayoutListener {
+                setSize(Size(parent.width, parent.height), isImmediately = false)
+            }
         }
         parent.addView(graph, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
     }

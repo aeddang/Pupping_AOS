@@ -25,13 +25,9 @@ class ValueBox : PageUI {
             val style = context.obtainStyledAttributes(it, R.styleable.PageUIStyle)
             if (style.hasValue(R.styleable.PageUIStyle_android_title)) {
                 this.text = style.getString(R.styleable.PageUIStyle_android_title)
-            } else {
-                this.text = null
             }
             if (style.hasValue(R.styleable.PageUIStyle_android_gravity)) {
                 binding.body.gravity = style.getInt(R.styleable.PageUIStyle_android_gravity, Gravity.CENTER)
-            } else {
-                this.text = null
             }
             if (!style.hasValue(R.styleable.PageUIStyle_defaultBgColor)) {
                 this.defaultBgColor = context.getColor(R.color.app_greyLight)

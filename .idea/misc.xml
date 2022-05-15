@@ -73,6 +73,9 @@
         <entry key="app/src/main/res/layout/cp_history_item.xml" value="0.23557075673364686" />
         <entry key="app/src/main/res/layout/cp_input_cell.xml" value="0.20820863616930313" />
         <entry key="app/src/main/res/layout/cp_like_button.xml" value="0.23300555793073963" />
+        <entry key="app/src/main/res/layout/cp_line_graph.xml" value="0.27661393758016245" />
+        <entry key="app/src/main/res/layout/cp_line_graph_bar.xml" value="0.27661393758016245" />
+        <entry key="app/src/main/res/layout/cp_line_graph_raw.xml" value="0.27661393758016245" />
         <entry key="app/src/main/res/layout/cp_location_info.xml" value="0.2321504916631039" />
         <entry key="app/src/main/res/layout/cp_menu_tab.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/cp_mission_info.xml" value="0.26700744628906253" />

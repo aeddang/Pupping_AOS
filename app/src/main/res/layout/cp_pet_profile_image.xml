@@ -19,8 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/margin_thin"
+        android:paddingHorizontal="@dimen/margin_thin"
         android:background="@drawable/gd_black_topdown"
+        android:paddingTop="@dimen/app_safe_top"
         >
         <com.skeleton.component.button.ImageTextButton
             android:id="@+id/btnBack"

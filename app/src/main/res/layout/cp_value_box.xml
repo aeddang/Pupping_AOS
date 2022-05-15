@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:radius = "@dimen/radius_light"
-    android:background="@color/app_whiteDeep"
     >
     <LinearLayout
         android:id="@+id/body"
@@ -27,11 +26,12 @@
             android:id="@+id/textTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
             android:includeFontPadding="false"
             android:lineSpacingExtra="0dp"
             style="@style/fontMedium"
             android:textSize="@dimen/font_tiny"
+            android:gravity="center"
+            android:textAlignment="center"
             tools:text="title"
             android:textColor="@color/app_grey"
             android:layout_marginTop="@dimen/margin_thinExtra"

@@ -9,6 +9,7 @@ import androidx.annotation.CallSuper
 import com.lib.util.ComponentLog
 import com.lib.view.animate.AnimateDrawView
 import com.lib.view.animate.AnimationUtil
+import kotlin.math.min
 
 
 abstract class Graph : AnimateDrawView {
@@ -106,13 +107,17 @@ abstract class Graph : AnimateDrawView {
         kind = paints.size
         isDrawing = true
         isContinuous = (values.size == 1)
-        if(width != 0 && height != 0) size = Size(width, height)
+        if(size.width == 0 && size.height == 0) size = Size(width, height)
+        else if (size.width == 0) size = Size(size.width, height)
+        else if (size.height == 0) size = Size(width, size.height)
     }
 
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        if(size.width == 0 || size.height == 0) size = Size(width, height)
+        if(size.width == 0 && size.height == 0) size = Size(width, height)
+        else if (size.width == 0) size = Size(size.width, height)
+        else if (size.height == 0) size = Size(width, size.height)
     }
 
     @CallSuper
@@ -127,13 +132,13 @@ abstract class Graph : AnimateDrawView {
 
     override fun onCompute(f: Int) {
         val delta = targetValue-startValue
-        currentValue = when(aniType){
+        currentValue = min(targetValue, when(aniType){
             AnimationType.EaseInSine -> AnimationUtil.easeInSine(currentTime.toDouble(), startValue, delta, duration.toDouble())
             AnimationType.EaseOutSine -> AnimationUtil.easeOutSine(currentTime.toDouble(), startValue, delta, duration.toDouble())
             AnimationType.EaseInElastic -> AnimationUtil.easeOutElastic(currentTime.toDouble(), startValue, delta, duration.toDouble())
             AnimationType.EaseOutElastic -> AnimationUtil.easeInElastic(currentTime.toDouble(), startValue, delta, duration.toDouble())
             AnimationType.Linear -> AnimationUtil.linear(currentTime.toDouble(), startValue, delta, duration.toDouble())
-        }
+        })
 
     }
 

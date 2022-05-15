@@ -16,6 +16,7 @@ import com.raftgroup.pupping.databinding.PageReportBinding
 import com.raftgroup.pupping.scene.component.info.ArcGraphData
 import com.raftgroup.pupping.scene.component.info.CompareData
 import com.raftgroup.pupping.scene.component.info.CompareGraphData
+import com.raftgroup.pupping.scene.component.info.LineGraphData
 import com.raftgroup.pupping.scene.component.list.History
 import com.raftgroup.pupping.scene.page.viewmodel.FragmentProvider
 import com.raftgroup.pupping.scene.page.viewmodel.PageParam
@@ -163,27 +164,11 @@ class PageReport : PageFragment() {
         var todayIdx:Int = -1
         val max =(data.missionTimes?.size ?: 7).toDouble()
         val myCount:Int = data.totalMissionCount?.toInt() ?: 0
-        /*
-        self.daysWalkCompareData
-        = [
-            CompareGraphData(value:myCount, max:max , color:Color.brand.primary, title:String.pageText.reportWalkDayCompareMe),
-            CompareGraphData(value:Float(data.avgMissionCount ?? 0), max:max, color:Color.app.grey, title:String.pageText.reportWalkDayCompareOthers)
-        ]
-        */
+
         data.missionTimes?.let {missionTimes->
             val count = missionTimes.size
             val today = LocalDate.now().toFormatString("yyyyMMdd")
-            val values:List<Double> = missionTimes.map{ time ->
-                 min(50.0, time.v ?: 0.0) / 50.0
-            }
-            val lines:List<String> = missionTimes.mapIndexed { idx, time ->
-                if (time.d == today) { todayIdx = idx }
-                val date = time.d?.toDate("yyyyMMdd") ?: LocalDate.now()
-                val mm = date.toFormatString("MM")?.toInt().toString()
-                val dd = date.toFormatString("dd")?.toInt().toString()
-                "$mm/$dd"
-            }
-            //self.daysWalkTimeData = LineGraphData(values: values, lines: lines)
+
             val unit = ctx.getString(R.string.reportWalkDayUnit)
             val unitType = if(type == ReportType.Weekly) ctx.getString(R.string.reportWalkDayTextWeek) else ctx.getString(R.string.reportWalkDayTextMonth)
             val endStr = "$myCount/$count$unit"
@@ -237,6 +222,34 @@ class PageReport : PageFragment() {
             val compareOther = CompareData(avg.toDouble(), count.toDouble(), getCompareDesc(avg.toDouble(), count))
             val compareGraphData = CompareGraphData(compareMe, compareOther, compare)
             binding.walkCompare.setData(compareGraphData)
+
+
+            val maxValue = 60.0
+            val values:List<Double> = missionTimes.map{ time ->
+                min(50.0, time.v ?: 0.0) / maxValue
+            }
+            val lines:List<String> = missionTimes.mapIndexed { idx, time ->
+                if (time.d == today) { todayIdx = idx }
+                val date = time.d?.toDate("yyyyMMdd") ?: LocalDate.now()
+                val mm = date.toFormatString("MM")?.toInt().toString()
+                val dd = date.toFormatString("dd")?.toInt().toString()
+                "$mm/$dd"
+            }
+
+            val avgTime = missionTimes.map{it.v ?: 0.0}.sum() / missionTimes.size
+            val avgLeading = "${ctx.getString(R.string.reportWalkRecentlyText1)} "
+            val avgValue = "${avgTime.toDecimal(f = 2)}${ctx.getString(R.string.reportWalkRecentlyUnit)}"
+            val avgTrailing = "${ctx.getString(R.string.reportWalkRecentlyText2)}"
+            val avgTitle = SpannableString("$avgLeading$avgValue\n$avgTrailing")
+            avgTitle.setSpan(
+                ForegroundColorSpan(ctx.getColor(R.color.brand_primary)),
+                avgLeading.length,
+                avgLeading.length + avgValue.length,
+                0
+            )
+            val lineGraph = LineGraphData(values, lines, title = avgTitle, activeIndex = todayIdx)
+            binding.walkAvg.setData(lineGraph)
+
         }
         return todayIdx
     }
