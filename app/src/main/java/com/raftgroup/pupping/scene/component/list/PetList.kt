@@ -35,10 +35,12 @@ class PetList : PageComponent {
     }
     fun setup(@StringRes titleRes:Int , userId:String? = null, l: OnClickListener? = null){
         this.userId = userId
+        binding.titleTab.visibility = View.VISIBLE
         binding.titleTab.setup(context.getString(titleRes) , l)
     }
     fun setup(title:String? = null, userId:String? = null, l: OnClickListener? = null){
         this.userId = userId
+        binding.titleTab.visibility = View.VISIBLE
         binding.titleTab.setup(title, l)
     }
 

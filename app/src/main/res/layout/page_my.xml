@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/margin_mediumUltra"
+            android:paddingTop="@dimen/margin_medium"
             android:paddingBottom="@dimen/app_bottom"
             >
             <com.raftgroup.pupping.scene.component.info.UserProfileInfo
@@ -35,13 +35,13 @@
                 android:id="@+id/petList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_mediumUltra"
+                android:layout_marginTop="@dimen/margin_medium"
                 />
             <com.raftgroup.pupping.scene.component.list.PictureList
                 android:id="@+id/pictureList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_mediumUltra"
+                android:layout_marginVertical="@dimen/margin_medium"
                 />
         </LinearLayout>
     </ScrollView>

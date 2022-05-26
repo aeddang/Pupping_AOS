@@ -7,7 +7,9 @@
     app:strokeColor="@color/app_greyLight"
     app:strokeWidth="@dimen/stroke_light"
     android:layout_width="82dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/app_white"
+    >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

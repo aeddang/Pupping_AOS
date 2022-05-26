@@ -52,7 +52,7 @@ class Gesture(var delegate: Delegate?, private val isVertical: Boolean, private 
     private val longTime = 2L
     private val moveMin = 3
     private val changeMin = 10
-    private val changeMax = 50
+    private val changeMax = 70
 
     init {
         originPosA = ArrayList()
@@ -83,6 +83,7 @@ class Gesture(var delegate: Delegate?, private val isVertical: Boolean, private 
 
         }
         var trigger:Boolean= true
+        Log.d(appTag, "touch action $action")
         when (action) {
             MotionEvent.ACTION_DOWN -> startEvent(locations)
             MotionEvent.ACTION_MOVE -> trigger = moveEvent(locations)
@@ -196,6 +197,7 @@ class Gesture(var delegate: Delegate?, private val isVertical: Boolean, private 
                 if (gestureTime >= longTime && abs(change.x) < changeMin && Math.abs(change.y) < changeMin) delegate?.gestureComplete(this,
                     Type.LongTouch
                 )
+                Log.d(appTag, "touch gestureTime $gestureTime")
                 when(moveType) {
                     MoveType.HORIZONTAL -> {
                         moveMD = change.x / gestureTime

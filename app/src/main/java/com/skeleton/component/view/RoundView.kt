@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
 import androidx.appcompat.content.res.AppCompatResources
 import com.lib.page.PageUI
 import com.raftgroup.pupping.R
@@ -25,7 +26,14 @@ open class RoundView : PageUI {
             stroke,color,shadowX, shadowY
         )
     }
-
+    fun setRadius(@DimenRes r:Int? ){
+        if (r == null){
+            radius = 0f
+        } else {
+            radius = context.resources.getDimension(r)
+        }
+        setOutline(selected)
+    }
     override var selected:Boolean? = null
         set(value) {
             field = value

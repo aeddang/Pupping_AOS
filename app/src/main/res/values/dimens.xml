@@ -4,7 +4,7 @@
     <dimen name="app_safe_top">30dp</dimen>
     <dimen name="app_top">50dp</dimen>
     <dimen name="app_safe_bottom">80dp</dimen>
-
+    <dimen name="app_floating_bottom">115dp</dimen>
     <dimen name="margin_heavy">75dp</dimen>
     <dimen name="margin_mediumUltra">46dp</dimen>
     <dimen name="margin_medium">32dp</dimen>
@@ -28,14 +28,17 @@
     <dimen name="icon_heavyLightHalf">20dp</dimen>
     <dimen name="icon_medium">38dp</dimen>
     <dimen name="icon_mediumExtra">36dp</dimen>
+    <dimen name="icon_mediumExtraHalf">18dp</dimen>
     <dimen name="icon_mediumLight">32dp</dimen>
     <dimen name="icon_regular">28dp</dimen>
+    <dimen name="icon_regularHalf">14dp</dimen>
     <dimen name="icon_regularExtra">24dp</dimen>
     <dimen name="icon_light">22dp</dimen>
     <dimen name="icon_lightExtra">20dp</dimen>
     <dimen name="icon_thin">18dp</dimen>
     <dimen name="icon_thinExtra">16dp</dimen>
     <dimen name="icon_tiny">14dp</dimen>
+    <dimen name="icon_tinyHalf">7dp</dimen>
     <dimen name="icon_micro">11dp</dimen>
 
     <dimen name="profile_heavy">80dp</dimen>
@@ -46,7 +49,7 @@
     <dimen name="profile_lightExtra">46dp</dimen>
     <dimen name="profile_lightExtra_half">23dp</dimen>
     <dimen name="profile_thin">34dp</dimen>
-
+    <dimen name="profile_thin_half">17dp</dimen>
     <dimen name="tab_heavy">85dp</dimen>
     <dimen name="tab_medium">56dp</dimen>
     <dimen name="tab_regular">46dp</dimen>

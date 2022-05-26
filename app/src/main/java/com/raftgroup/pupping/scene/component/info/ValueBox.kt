@@ -27,11 +27,9 @@ class ValueBox : PageUI {
                 this.text = style.getString(R.styleable.PageUIStyle_android_title)
             }
             if (style.hasValue(R.styleable.PageUIStyle_android_gravity)) {
-                binding.body.gravity = style.getInt(R.styleable.PageUIStyle_android_gravity, Gravity.CENTER)
+                binding.bodyLayout.gravity = style.getInt(R.styleable.PageUIStyle_android_gravity, Gravity.CENTER)
             }
-            if (!style.hasValue(R.styleable.PageUIStyle_defaultBgColor)) {
-                this.defaultBgColor = context.getColor(R.color.app_greyLight)
-            }
+
             super.initialize(context, attrs)
         }
     }
@@ -43,7 +41,7 @@ class ValueBox : PageUI {
     var text:String? = null
         set(value) {
             field = value
-            if (field == null) binding.textTitle.visibility = View.GONE
+            if (field?.isEmpty() != false) binding.textTitle.visibility = View.GONE
             else {
                 binding.textTitle.visibility = View.VISIBLE
                 binding.textTitle.text = field
@@ -84,6 +82,5 @@ class ValueBox : PageUI {
                 if ( field == false) binding.icon.setColorFilter(color)
                 else binding.icon.setColorFilter( acColor ?: color )
             }
-            setBgColor(value)
         }
 }

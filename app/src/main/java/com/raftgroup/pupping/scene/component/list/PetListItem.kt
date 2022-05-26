@@ -155,6 +155,8 @@ class PetListItem : PageComponent, ListItem<PetProfile> {
         setProgress(data)
         if (isMypet){
             binding.btnAddProfile.visibility = View.VISIBLE
+        } else {
+            binding.btnAddProfile.visibility = View.GONE
         }
 
         lifecycleOwner?.let {owner ->

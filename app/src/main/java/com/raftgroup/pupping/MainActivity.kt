@@ -39,6 +39,7 @@ import javax.inject.Inject
     private lateinit var binding: ActivityMainBinding
     private var isInit = false
 
+
     override fun onViewBinding(): View {
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
         return binding.root
@@ -130,12 +131,14 @@ import javax.inject.Inject
     override fun onWillChangePage(prevPage: PageObject?, nextPage: PageObject?) {
         super.onWillChangePage(prevPage, nextPage)
         nextPage ?: return
-        if ( this.pageModel.useBottomTabPage(nextPage.pageID) ) binding.bottomTab.viewTab()
-        else binding.bottomTab.hideTab()
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
+        if ( this.pageModel.useBottomTabPage(nextPage.pageID) ) {
+            binding.bottomTab.viewTab()
+            pageModel.useBottomTab.value = true
+        }
+        else{
+            binding.bottomTab.hideTab()
+            pageModel.useBottomTab.value = false
+        }
     }
 
 

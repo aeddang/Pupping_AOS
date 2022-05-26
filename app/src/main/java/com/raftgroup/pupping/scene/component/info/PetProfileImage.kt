@@ -47,6 +47,7 @@ class PetProfileImage : PageComponent {
         super.init(context)
     }
 
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         lifecycleOwner?.let {owner ->

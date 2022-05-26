@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
     <LinearLayout
         android:id="@+id/vaccinateBody"
         android:layout_width="match_parent"
@@ -36,20 +35,37 @@
         android:orientation="horizontal"
         android:layout_marginHorizontal="@dimen/margin_light"
         >
-        <com.raftgroup.pupping.scene.component.info.ValueBox
-            android:id="@+id/recordWeight"
-            android:layout_weight="1"
-            android:title="@string/weight"
+        <com.skeleton.component.view.RoundView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:radius="@dimen/radius_light"
+            android:background="@color/app_whiteDeep"
+            >
+            <com.raftgroup.pupping.scene.component.info.ValueBox
+                android:id="@+id/recordWeight"
+                app:defaultBgColor="@color/app_whiteDeep"
+                android:title="@string/weight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.skeleton.component.view.RoundView>
         <Space
             android:layout_width="@dimen/margin_thin"
             android:layout_height="wrap_content"/>
-        <com.raftgroup.pupping.scene.component.info.ValueBox
-            android:id="@+id/recordSize"
-            android:layout_weight="1"
-            android:title="@string/size"
+        <com.skeleton.component.view.RoundView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:radius="@dimen/radius_light"
+            android:background="@color/app_whiteDeep"
+            >
+            <com.raftgroup.pupping.scene.component.info.ValueBox
+                android:id="@+id/recordSize"
+                android:title="@string/size"
+                app:defaultBgColor="@color/app_greyLight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.skeleton.component.view.RoundView>
+
     </LinearLayout>
 </LinearLayout>

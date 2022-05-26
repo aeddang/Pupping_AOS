@@ -8,6 +8,9 @@ open class PageActivityPresenter : PagePresenter{
         set(value) {
             activity.isFullScreen = value
         }
+    override var hasLayerPopup: Boolean
+        get() = activity.hasLayerPopup
+        set(value) {}
 
     override var systemBarColor:Int
         get() = activity.systemBarColor
@@ -23,6 +26,8 @@ open class PageActivityPresenter : PagePresenter{
 
     override val currentPage: PageObject?
         get() = activity.currentPage
+    override val currentTopPage: PageObject?
+        get() = activity.currentTopPage
     override val lastPage: PageObject?
         get() = activity.lastPage
     override val prevPage: PageObject?
@@ -49,6 +54,10 @@ open class PageActivityPresenter : PagePresenter{
 
     override fun closePopup(key: String?, isAni: Boolean): PagePresenter {
         key?.let { activity.closePopup(it,isAni) }
+        return this
+    }
+    override fun closePopupId(id: String?, isAni: Boolean): PagePresenter {
+        id?.let { activity.onClosePopupId(it,isAni) }
         return this
     }
     override fun closePopup(pageObject: PageObject, isAni: Boolean): PagePresenter {

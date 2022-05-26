@@ -70,10 +70,12 @@ class PetAbout : PageComponent, ListItem<PetProfile> {
             binding.btnRecord.visibility = View.GONE
             if( data.size.value == null && data.weight.value == null ){
                 binding.recordBody.visibility = View.GONE
+                binding.titleRecord.visibility = View.GONE
             } else {
                 binding.recordWeight.value = "${(data.weight.value ?: 0)}${context.getString(R.string.kg)}"
                 binding.recordSize.value = "${(data.size.value ?: 0)}${context.getString(R.string.m)}"
                 binding.recordBody.visibility = View.VISIBLE
+                binding.titleRecord.visibility = View.VISIBLE
             }
         }
 

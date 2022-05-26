@@ -18,6 +18,7 @@ import com.bumptech.glide.request.transition.Transition
 import com.lib.page.PageComponent
 import com.lib.page.PagePresenter
 import com.lib.page.PageRequestPermission
+import com.lib.page.PageView
 import com.lib.util.*
 import com.lib.view.adapter.ListItem
 import com.raftgroup.pupping.R
@@ -48,15 +49,19 @@ class UserProfileInfo : PageComponent, ListItem<UserProfile> {
     private lateinit var binding: CpUserProfileInfoBinding
 
     private var profileData:UserProfile? = null
+    override val pageChileren:ArrayList<PageView>?
+        get(){
+            return arrayListOf(binding.descProfile)
+        }
     override fun init(context: Context) {
         binding = CpUserProfileInfoBinding.inflate(LayoutInflater.from(context), this, true)
         super.init(context)
+
     }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         binding.btnAddProfile.visibility = View.GONE
-        binding.btnRegistNickName.visibility = View.GONE
 
     }
     override fun onDetachedFromWindow() {
@@ -108,7 +113,7 @@ class UserProfileInfo : PageComponent, ListItem<UserProfile> {
 
     fun setMyProfile(){
         binding.btnAddProfile.visibility = View.VISIBLE
-        binding.btnRegistNickName.visibility = View.VISIBLE
+        binding.descProfile.setMyProfile()
         binding.btnAddProfile.setOnClickListener {
             Select.Builder(context)
                 .setResButtons(arrayOf(
@@ -138,51 +143,21 @@ class UserProfileInfo : PageComponent, ListItem<UserProfile> {
                 }
                 .show()
         }
-        binding.btnRegistNickName.setOnClickListener {
-            pagePresenter.openPopup(
-                pageProvider.getPageObject(PageID.ProfileRegist)
-                    .addParam(PageParam.type, PageProfileRegist.ProfileType.User)
-            )
-        }
     }
 
     @SuppressLint("SetTextI18n")
     override fun setData(data: UserProfile, idx:Int){
         PageLog.d(data.imagePath ?: "image null", appTag)
-        PageLog.d(data.type.value ?: "type null", appTag)
-        PageLog.d(data.email.value ?: "email null", appTag)
         profileData = data
         lifecycleOwner?.let {owner ->
             data.image.observe(owner){
                 setImage(data)
             }
-            data.nickName.observe(owner){
-                setNickName(data)
-            }
-            data.type.observe(owner){
-                setSnsType(data)
-            }
-            data.email.observe(owner){
-                setEmail(data)
-            }
+
         }
-        setNickName(data)
         setImage(data)
-        setSnsType(data)
-        setEmail(data)
-    }
-    private fun setNickName(data: UserProfile){
-        binding.textName.text = data.nickName.value
-    }
+        binding.descProfile.setData(data, idx)
 
-    private fun setSnsType(data: UserProfile){
-        data.type.value?.logo()?.let {
-            binding.imgLogo.setImageResource(it)
-        }
-    }
-
-    private fun setEmail(data: UserProfile){
-        binding.textEmail.text = data.email.value
     }
 
     private fun setImage(data: UserProfile){
@@ -196,11 +171,7 @@ class UserProfileInfo : PageComponent, ListItem<UserProfile> {
         }
 
     }
-    private fun updateName(name: String){
-        dataProvider.requestData(ApiQ(
-            appTag, ApiType.UpdateUser, requestData = ModifyUserProfileData(nickName = name)
-        ))
-    }
+
     private fun updateImage(resource: Bitmap){
         val crop = Size(resource.width, resource.height).getCropRatioSize(Size(240,240))
         val cropImg = resource.centerCrop(crop)

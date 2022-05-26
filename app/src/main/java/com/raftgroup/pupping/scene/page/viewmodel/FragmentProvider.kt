@@ -10,18 +10,17 @@ import com.raftgroup.pupping.scene.page.my.PageHealthModify
 import com.raftgroup.pupping.scene.page.my.PageMy
 import com.raftgroup.pupping.scene.page.my.PageProfileModify
 import com.raftgroup.pupping.scene.page.my.PageProfileRegist
-import com.raftgroup.pupping.scene.page.popup.PageHistory
-import com.raftgroup.pupping.scene.page.popup.PagePicture
-import com.raftgroup.pupping.scene.page.popup.PagePictureList
-import com.raftgroup.pupping.scene.page.popup.PageProfile
+import com.raftgroup.pupping.scene.page.popup.*
 import com.raftgroup.pupping.scene.page.report.PageReport
+import com.raftgroup.pupping.scene.page.walk.PageWalk
+import com.raftgroup.pupping.scene.page.walk.model.PlayWalkType
 
 
 class FragmentProvider : PageProvider{
     fun getPageObject(pageID: PageID) :PageObject {
         val obj = PageObject(pageID.value, pageID.position)
         when(pageID){
-            //PageID.HOME -> obj.addParam( PageParam.data, PageHomeData().raftGroupData()
+            PageID.Walk, PageID.Mission -> obj.isTop = true
             else -> {}
         }
         return obj
@@ -47,6 +46,9 @@ class FragmentProvider : PageProvider{
             PageID.Profile.value -> PageProfile()
             PageID.History.value -> PageHistory()
             PageID.Report.value -> PageReport()
+            PageID.User.value -> PageUser()
+            PageID.Walk.value -> PageWalk(PlayWalkType.Walk)
+            PageID.Mission.value -> PageWalk(PlayWalkType.Mission)
             else -> PageIntro()
         }
     }
@@ -55,7 +57,7 @@ class FragmentProvider : PageProvider{
 enum class PageID(val value: String, val position: Int = 9999){
     Intro("Intro", 1),
     Login("Login", 2),
-    Home("Home", 100),
+    Home("Home", 200),
     Explore("Explore", 300),
     My("My", 400),
     ProfileRegist("ProfileRegist", 999),
@@ -65,7 +67,10 @@ enum class PageID(val value: String, val position: Int = 9999){
     Picture("Picture", 999),
     Profile("Profile", 999),
     History("History", 999),
-    Report("Report", 999)
+    Report("Report", 999),
+    User("User", 999),
+    Walk("Walk", 101),
+    Mission("Mission", 999)
 }
 
 

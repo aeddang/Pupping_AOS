@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:title="@string/titleMyDogs"
         app:titleType= "add"
+        android:visibility="gone"
         />
     <include
         android:id="@+id/listView"

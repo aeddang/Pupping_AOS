@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_thinHalf"
+    >
+    <com.skeleton.component.view.RoundView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:radius="@dimen/radius_light"
+        android:background="@color/app_white"
+        >
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ef_ripple_rt_blank"
+            android:layout_marginBottom="90dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/margin_regular"
+            >
+            <com.raftgroup.pupping.scene.component.info.UserProfileInfo
+                android:id="@+id/profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_regular"
+                />
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/profile_thin"
+                android:layout_marginTop="@dimen/margin_regular"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:id="@+id/petList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_regular">
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+
+    </com.skeleton.component.view.RoundView>
+</FrameLayout>

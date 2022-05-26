@@ -7,13 +7,14 @@
     android:layout_height="match_parent"
     android:background="@color/brand_primaryStrong"
     tools:context=".MainActivity">
+
     <FrameLayout
-        android:id="@+id/areaTop"
+        android:id="@+id/area"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>
     <FrameLayout
-        android:id="@+id/area"
+        android:id="@+id/areaTop"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>
@@ -24,6 +25,7 @@
         android:layout_gravity="bottom"
         android:layout_marginBottom="-64dp"
         />
+
     <View
         android:id="@+id/dimed"
         android:layout_width="match_parent"

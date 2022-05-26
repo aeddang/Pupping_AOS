@@ -8,15 +8,12 @@ import com.lib.page.*
 import com.raftgroup.pupping.store.provider.DataProvider
 import com.raftgroup.pupping.store.PageRepository
 import com.skeleton.module.Repository
-
+/*
 enum class ViewModelEventType{
-    ScrollTop, ScrollDown, ScrollUp
 }
-
 data class ViewModelEvent(val type: ViewModelEventType, val id: String = "", var data:Any? = null)
-
+*/
 open class BasePageViewModel(val repo: PageRepository) : ViewModel(), PageViewModel {
-    val event = MutableLiveData<ViewModelEvent?>()
     override val repository: Repository get() = repo
     override val observable: PageAppViewModel get() = repo.pagePresenter.observable
     override val presenter:PagePresenter get() = repo.pagePresenter
@@ -28,7 +25,6 @@ open class BasePageViewModel(val repo: PageRepository) : ViewModel(), PageViewMo
     @CallSuper
     override fun onCreateView(owner: LifecycleOwner, pageObject: PageObject?) {
         this.owner = owner
-        event.value = null
         repo.clearEvent()
     }
 

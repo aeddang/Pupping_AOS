@@ -37,7 +37,15 @@ enum class MissionCategory {
 }
 
 enum class MissionSearchType{
-    Distance, Time, Random, User
+    Distance, Time, Random, User;
+    fun getApiCode():String {
+        return when (this){
+            MissionSearchType.Distance -> "Distance"
+            MissionSearchType.Time -> "Time"
+            MissionSearchType.Random -> "Random"
+            MissionSearchType.User -> "User"
+        }
+    }
 }
 
 interface MissionApi {

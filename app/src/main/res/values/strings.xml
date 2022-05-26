@@ -97,6 +97,7 @@
     <string name="alertSnsLoginError">After login. Available.</string>
     <string name="alertCurrentPlayMission">This mission is currently being performed.</string>
     <string name="alertCurrentPlay">Please proceed after completing the current mission.</string>
+    <string name="alertCurrentPlayingDisable">This function cannot be used while performing a mission.</string>
     <string name="alertPrevPlayMission">Mission in progress.\nAre you sure you want to quit and start a new mission?</string>
     <string name="alertPrevPlayWalk">End your walk and start a new mission?</string>
     <string name="alertClosePlayMission">Do you want to end the mission?\nAll unsaved information will be erased.</string>

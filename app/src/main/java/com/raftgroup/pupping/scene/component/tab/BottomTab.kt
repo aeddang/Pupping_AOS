@@ -1,21 +1,27 @@
 package com.raftgroup.pupping.scene.component.tab
 
 import android.content.Context
+import android.graphics.Point
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
+import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.lib.page.*
-import com.lib.util.ComponentLog
-import com.lib.util.Log
-import com.lib.util.animateY
+import com.lib.util.*
+import com.raftgroup.pupping.R
 import com.raftgroup.pupping.databinding.CpBottomTapBinding
+import com.raftgroup.pupping.scene.page.my.PageProfileRegist
 import com.raftgroup.pupping.scene.page.viewmodel.FragmentProvider
 import com.raftgroup.pupping.scene.page.viewmodel.PageID
+import com.raftgroup.pupping.scene.page.viewmodel.PageParam
+import com.raftgroup.pupping.store.mission.MissionManager
+import com.raftgroup.pupping.store.provider.DataProvider
 import com.skeleton.component.button.ImageTextButton
+import com.skeleton.component.dialog.Alert
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -33,8 +39,10 @@ class BottomTab : PageComponent {
 
     @Inject lateinit var pagePresenter: PagePresenter
     @Inject lateinit var pageProvider: FragmentProvider
+    @Inject lateinit var dataProvider: DataProvider
+    @Inject lateinit var missionManager: MissionManager
 
-    private val pageIds = arrayOf(PageID.Home, PageID.Home,  PageID.Explore, PageID.My)
+    private val pageIds = arrayOf(PageID.Walk, PageID.Home,  PageID.Explore, PageID.My)
     private var btns:Array<ImageTextButton> = arrayOf()
 
     private lateinit var binding: CpBottomTapBinding
@@ -86,7 +94,30 @@ class BottomTab : PageComponent {
         btns = arrayOf(binding.btn0, binding.btn1, binding.btn2, binding.btn3)
         btns.forEachIndexed{idx,btn->
             btn.setOnClickListener {
-                pagePresenter.changePage(pageProvider.getPageObject(pageIds[idx]))
+                if(idx == 0){
+                    if (missionManager.currentMission.value != null) {
+                        Toast(context).showCustomToast(R.string.alertCurrentPlay, pagePresenter.activity)
+                        return@setOnClickListener
+                    }
+                    if (dataProvider.user.pets.value?.isEmpty() == true) {
+                        Alert.Builder(pagePresenter.activity)
+                            .setSelectButtons()
+                            .setText(R.string.alertNeedProfileRegist)
+                            .onSelected {
+                                if (it == 0){
+                                    pagePresenter.openPopup(
+                                        pageProvider.getPageObject(PageID.ProfileRegist)
+                                            .addParam(PageParam.type, PageProfileRegist.ProfileType.Pet)
+                                    )
+                                }
+                            }
+                            .show()
+                    }
+                    pagePresenter.openPopup(pageProvider.getPageObject(pageIds[idx]))
+                } else {
+                    pagePresenter.changePage(pageProvider.getPageObject(pageIds[idx]))
+                }
+
             }
         }
         ComponentLog.d("onCoroutineScope ${btns.size}", appTag)
@@ -122,19 +153,23 @@ class BottomTab : PageComponent {
         if (isView) return
         isView = true
         Log.d(appTag, "viewTab")
+        this.animatePostion(Point(0,0),true).start()
+        /*
         this.animateY(0, true).apply {
             interpolator = AccelerateInterpolator()
             startAnimation(this)
-        }
+        }*/
     }
     fun hideTab() {
         if (! isView) return
         isView = false
         Log.d(appTag, "hideTab")
+        this.animatePostion(Point(0,-height),true).start()
+        /*
         this.animateY(- height, true).apply {
             interpolator = DecelerateInterpolator()
             startAnimation(this)
-        }
+        }*/
     }
 
 }

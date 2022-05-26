@@ -31,9 +31,11 @@ import com.raftgroup.pupping.store.api.ApiQ
 import com.raftgroup.pupping.store.api.ApiSuccess
 import com.raftgroup.pupping.store.api.ApiType
 import com.raftgroup.pupping.store.api.rest.WeatherData
+import com.raftgroup.pupping.store.mission.Mission
 import com.raftgroup.pupping.store.mission.MissionManager
 import com.raftgroup.pupping.store.provider.DataProvider
 import com.raftgroup.pupping.store.provider.model.PetProfile
+import com.skeleton.component.dialog.Alert
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -85,10 +87,13 @@ class PageHome : PageFragment(), PageRequestPermission{
             PageLog.d(missionManager.missions, appTag)
             binding.refreshBody.isRefreshing = false
             binding.listBody.removeAllViews()
-            missionManager.missions.forEach {
+            missionManager.missions.forEach { mission ->
                 val info = MissionInfo(ctx)
                 binding.listBody.addView(info)
-                info.setData(it)
+                info.setData(mission)
+                info.setOnClickListener {
+                    startMission(mission)
+                }
             }
         }
         dataProvider.user.pets.observe(this){
@@ -110,6 +115,69 @@ class PageHome : PageFragment(), PageRequestPermission{
             pagePresenter.openPopup(
                 pageProvider.getPageObject(PageID.ProfileRegist)
                     .addParam(PageParam.type, PageProfileRegist.ProfileType.Pet)
+            )
+        }
+    }
+
+    private fun startMission(mission:Mission){
+        if (dataProvider.user.pets.value?.isEmpty() == true) {
+            Alert.Builder(pagePresenter.activity)
+                .setSelectButtons()
+                .setText(R.string.alertNeedProfileRegist)
+                .onSelected {
+                    if (it == 0) {
+                        pagePresenter.openPopup(
+                            pageProvider.getPageObject(PageID.ProfileRegist)
+                                .addParam(PageParam.type, PageProfileRegist.ProfileType.Pet)
+                        )
+                    }
+                }
+                .show()
+            return
+        }
+        if (missionManager.currentMission.value?.id == mission.id) {
+            Toast(context).showCustomToast(
+                R.string.alertCurrentPlayMission,
+                pagePresenter.activity
+            )
+            return
+        }
+        if (pagePresenter.hasLayerPopup) {
+            if (missionManager.currentMission.value == null) {
+                Alert.Builder(pagePresenter.activity)
+                    .setSelectButtons()
+                    .setText(R.string.alertPrevPlayWalk)
+                    .onSelected {
+                        if (it == 0) {
+                            pagePresenter.closePopupId(PageID.Walk.value)
+                            startMission(mission)
+                        }
+                    }
+                    .show()
+            }
+            return
+        }
+        if ( missionManager.currentMission.value != null) {
+            Alert.Builder(pagePresenter.activity)
+                .setSelectButtons()
+                .setText(R.string.alertPrevPlayMission)
+                .onSelected {
+                    if (it == 0) {
+                        missionManager.endMission()
+                        missionManager.startMission(mission)
+                        pagePresenter.openPopup(
+                            pageProvider.getPageObject(PageID.Mission)
+                                .addParam(PageParam.data, mission)
+                        )
+                    }
+                }
+                .show()
+
+        } else {
+            missionManager.startMission(mission)
+            pagePresenter.openPopup(
+                pageProvider.getPageObject(PageID.Mission)
+                    .addParam(PageParam.data, mission)
             )
         }
     }

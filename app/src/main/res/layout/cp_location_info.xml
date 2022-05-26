@@ -67,6 +67,7 @@
                         tools:text="10°"
                         android:textColor="@color/brand_primary"
                         android:visibility="gone"
+
                         />
                     <ImageView
                         android:id="@+id/dot"
@@ -79,6 +80,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         android:layout_margin="@dimen/margin_tiny"
                         android:visibility="gone"
+
                         />
                     <TextView
                         android:id="@+id/textWeather"
@@ -90,6 +92,7 @@
                         tools:text="weather"
                         android:textColor="@color/app_grey"
                         android:visibility="gone"
+
                         />
                     <ImageView
                         android:id="@+id/iconWeather"

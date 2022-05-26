@@ -6,6 +6,9 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.MutableLiveData
 import com.lib.util.DataLog
 import com.raftgroup.pupping.R
+import com.raftgroup.pupping.scene.component.list.History
+import com.raftgroup.pupping.store.api.rest.GeoData
+import com.raftgroup.pupping.store.api.rest.MissionData
 import com.raftgroup.pupping.store.api.rest.PetData
 import com.raftgroup.pupping.store.api.rest.UserData
 import com.skeleton.sns.SnsType
@@ -84,8 +87,8 @@ class User {
     var currentProfile:UserProfile = UserProfile(); private set
     var currentPet:PetProfile? = null; private set
     var snsUser:SnsUser? = null; private set
-    //var recentMission:History? = nil; private set
-    //var finalGeo:GeoData? = nil; private set
+    var recentMission:History? = null; private set
+    var finalGeo:GeoData? = null; private set
 
     fun registUser(user:SnsUser){
         snsUser = user
@@ -110,26 +113,25 @@ class User {
         point.value = data.point ?: 0.0
         currentProfile.setData(data)
     }
-    /*
-    fun setData(data:MissionData) -> User {
-        self.recentMission = History(data: data)
-        if let user = data.user {
-            self.setData(data:user)
+
+    fun setData(data:MissionData) : User {
+        recentMission = History().setData(data)
+        data.user?.let{
+            setData(it)
         }
-        if let pets = data.pets {
-            self.setData(data:pets, isMyPet:false)
+        data.pets?.let{
+            setData(it, false)
         }
-        if let type = SnsType.getType(code: data.user?.providerType), let id = data.user?.userId {
-            self.snsUser = SnsUser(
-                snsType: type,
-                snsID: id,
-                snsToken: ""
-            )
+        val type = SnsType.getType(data.user?.providerType)
+        val userId = data.user?.userId
+        if (type != null && userId != null){
+            snsUser = SnsUser(type, userId, "")
         }
-        self.finalGeo = data.geos?.first
-        return self
+        finalGeo = data.geos?.first()
+        return this
     }
-    func missionCompleted(_ mission:Mission) {
+    /*
+    fun missionCompleted(_ mission:Mission) {
         let point =  mission.lv.point()
         self.point += point
         self.mission += 1

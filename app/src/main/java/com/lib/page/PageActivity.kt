@@ -52,6 +52,11 @@ abstract class PageActivity : AppCompatActivity(), Page, PageRequestPermission, 
         get(){
             return activityModel.currentPageObject
         }
+    val currentTopPage: PageObject?
+        get(){
+            val closeablePopups = popups.filter { !it.isBottom  }
+            return if( closeablePopups.isEmpty() ) currentPage else closeablePopups.last()
+        }
     val lastPage: PageObject?
         get(){
             return if( popups.isEmpty() ) currentPage else popups.last()
@@ -60,6 +65,9 @@ abstract class PageActivity : AppCompatActivity(), Page, PageRequestPermission, 
         get(){
             return if( historys.isEmpty() ) null else historys.last()
         }
+    val hasLayerPopup: Boolean
+        get() = popups.find { it.isTop } != null
+
 
     @Suppress("DEPRECATION")
     var isFullScreen:Boolean = false
@@ -286,8 +294,9 @@ abstract class PageActivity : AppCompatActivity(), Page, PageRequestPermission, 
     }
     @CallSuper
     override fun onBackPressed() {
-        if(popups.isNotEmpty()){
-            val last = popups.last()
+        val closeablePopups = popups.filter { !it.isLayer }
+        if(closeablePopups.isNotEmpty()){
+            val last = closeablePopups.last()
             val lastPopup = supportFragmentManager.findFragmentByTag(last.fragmentID) as? PageView
             lastPopup?.let { if( it.hasBackPressAction ) return }
             popups.remove(last)
@@ -540,6 +549,12 @@ abstract class PageActivity : AppCompatActivity(), Page, PageRequestPermission, 
 
 
 
+    }
+    fun onClosePopupId(id: String, isAni: Boolean = true){
+        val f = popups.find { it.pageID == id }
+        f?.let {
+            onClosePopup(it, isAni)
+        }
     }
     private fun onClosePopup(key: String, isAni: Boolean = true){
         val f = popups.find { it.key == key }

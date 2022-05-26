@@ -3,6 +3,7 @@ package com.lib.page
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.RectF
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Range
@@ -103,6 +104,7 @@ open class PageDragingView: FrameLayout, Gesture.Delegate {
     var dragArea:Range<Int>? = null
     var closePos:Int = 0
         set(value) {
+            if (field == value) return
             field = value
             if( value == -1 ) return
             if( isClosed ) onGestureClose(isClosure = false, isMove = false)
@@ -157,7 +159,22 @@ open class PageDragingView: FrameLayout, Gesture.Delegate {
     private var trigger:Boolean = false
     private var isClosed = false
     private var isCloseMove = false
+    var gestureArea:RectF? = null
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+        gestureArea?.let{
+            val px = ev.getX(0)
+            val py = ev.getY(0)
+            var hitX = true
+            var hitY = true
+            if (it.left != -1f){
+                hitX = it.left <= px && it.right >= px
+            }
+            if (it.top != -1f){
+                hitY = it.top <= py && it.bottom >= py
+            }
+            if(!hitX || !hitY) return false
+        }
+
         if( ev.action ==  MotionEvent.ACTION_DOWN && !trigger) {
             prevTouchEvent = ev
             return false
@@ -196,7 +213,7 @@ open class PageDragingView: FrameLayout, Gesture.Delegate {
         if( (ev.action ==  MotionEvent.ACTION_UP
                 || ev.action ==  MotionEvent.ACTION_CANCEL
                 ||ev.action ==  MotionEvent.ACTION_OUTSIDE)
-            && trigger) {
+            ) {
             gesture.adjustEvent(ev)
             prevTouchEvent = null
             gesture.cancelEvent()
@@ -280,7 +297,7 @@ open class PageDragingView: FrameLayout, Gesture.Delegate {
     }
 
     private fun touchEnd() {
-        Log.d(appTag, "touchEnd")
+        Log.d(appTag, "touchEnd ${finalGesture.name}")
         if (isClosed)
             when (finalGesture) {
                 returnType -> onGestureReturn()
@@ -288,6 +305,7 @@ open class PageDragingView: FrameLayout, Gesture.Delegate {
                     closePos = 0
                     onGestureClose(true)
                 }
+                Gesture.Type.None -> onGestureReturn()
                 else -> onGestureClose(false)
             }
         else
@@ -297,6 +315,7 @@ open class PageDragingView: FrameLayout, Gesture.Delegate {
 
     override fun gestureComplete(g: Gesture, e: Gesture.Type) {
         this.finalGesture = e
+        Log.d(appTag, "touch Complete ${finalGesture.name}")
     }
 
     private fun getClosePos():Pair<Float,Float> {

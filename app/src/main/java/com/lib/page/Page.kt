@@ -25,6 +25,7 @@ data class PageObject(val pageID:String = "",
     val key:String = UUID.randomUUID().toString()
     val fragmentID:String get() { return "$pageID$pageIDX"}
     var isTop = false
+    var isLayer = false
     var isBottom = false
     fun addParam(key:String, value:Any?):PageObject{
         value ?: return this
@@ -43,10 +44,12 @@ data class PageObject(val pageID:String = "",
 
 interface PagePresenter {
     var isFullScreen:Boolean
+    var hasLayerPopup:Boolean
     var systemBarColor:Int
     var appTheme:Int
     var activity:PageActivity
     val currentPage:PageObject?
+    val currentTopPage:PageObject?
     val lastPage:PageObject?
     val prevPage:PageObject?
     val observable:PageAppViewModel
@@ -55,6 +58,7 @@ interface PagePresenter {
     fun goBack(pageObject:PageObject?=null): PagePresenter
     fun clearPageHistory(pageObject:PageObject?=null): PagePresenter
     fun closePopup(key:String?,isAni:Boolean = true): PagePresenter
+    fun closePopupId(id:String?,isAni:Boolean = true): PagePresenter
     fun closePopup(pageObject:PageObject,isAni:Boolean = true): PagePresenter
     fun closeAllPopup(isAni:Boolean = true): PagePresenter
     fun closeAllPopup(exception:String,  isAni:Boolean = true): PagePresenter

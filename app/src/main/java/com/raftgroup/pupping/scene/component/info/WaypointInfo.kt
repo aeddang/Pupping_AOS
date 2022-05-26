@@ -37,18 +37,18 @@ class WaypointInfo : PageUI {
         binding.line.visibility = View.GONE
     }
     @SuppressLint("UseCompatLoadingForDrawables")
-    fun setStart(text:String?):WaypointInfo{
+    fun setStart(text:String?, @ColorRes color:Int?= null):WaypointInfo{
         defaultImage = context.getDrawable(R.drawable.ic_waypoint_header)
-        defaultTextColor = R.color.app_grey
+        defaultTextColor = color ?: R.color.app_grey
         binding.line.visibility = View.GONE
         this.text = text
         this.selected = false
         return this
     }
     @SuppressLint("UseCompatLoadingForDrawables")
-    fun setPoint(text:String?):WaypointInfo{
+    fun setPoint(text:String?, @ColorRes color:Int?= null):WaypointInfo{
         defaultImage = context.getDrawable(R.drawable.ic_waypoint_header)
-        defaultTextColor = R.color.app_grey
+        defaultTextColor = color ?: R.color.app_grey
         binding.line.visibility = View.VISIBLE
         this.text = text
         this.selected = false
@@ -56,9 +56,9 @@ class WaypointInfo : PageUI {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    fun setDestination(text:String?):WaypointInfo{
+    fun setDestination(text:String?, @ColorRes color:Int?= null):WaypointInfo{
         defaultImage = context.getDrawable(R.drawable.ic_destination_header)
-        defaultTextColor = R.color.brand_primary
+        defaultTextColor = color ?: R.color.brand_primary
         binding.line.visibility = View.VISIBLE
         this.text = text
         this.selected = false

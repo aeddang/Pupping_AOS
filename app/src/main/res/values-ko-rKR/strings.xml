@@ -50,6 +50,7 @@
     <string name="alertSnsLoginError">로그인 에러가 발생했어요.</string>
     <string name="alertCurrentPlayMission">현재 수행 중인 미션이에요.</string>
     <string name="alertCurrentPlay">현재 수행 중인 미션을 먼저 종료해주세요.</string>
+    <string name="alertCurrentPlayingDisable">미션 수행 중에는 사용 할 수 없는 기능입니다.</string>
     <string name="alertPrevPlayMission">현재 수행중인 미션이 있어요. 종료하고 새로운 미션을 시작할까요?</string>
     <string name="alertPrevPlayWalk">산책을 종료하고 미션을 시작할까요?</string>
     <string name="alertClosePlayMission">미션을 종료할까요? 저장되지 않은 정보는 모두 지워집니다.</string>

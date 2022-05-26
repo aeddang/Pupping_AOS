@@ -6,33 +6,78 @@
     android:layout_height="match_parent"
     android:background="@color/brand_bg"
     >
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+    <com.raftgroup.pupping.scene.component.tab.PageTab
+        android:id="@+id/pageTab"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <TextView
-        android:id="@+id/textTitle"
-        style="@style/fontBold"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginTop="250dp"
-        android:layout_marginStart="@dimen/margin_regular"
-        android:ellipsize="end"
-        android:textColor="@color/app_greyDeep"
-        android:textSize="@dimen/font_medium"
+        android:layout_marginTop="@dimen/app_safe_top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text ="@string/appName" />
-    <com.raftgroup.pupping.scene.component.button.SpeechBubbleButton
-        android:id="@+id/btnTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="Logout Test"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="35dp"
+        />
+    <com.skeleton.component.button.ImageTextButton
+        android:id="@+id/btnMap"
+        android:layout_width="@dimen/icon_regular"
+        android:layout_height="@dimen/icon_regular"
+        app:defaultImage="@drawable/ic_map"
+        app:defaultTextColor="@color/app_greyLight"
+        app:activeTextColor="@color/app_greyDeep"
+        app:layout_constraintTop_toTopOf="@id/pageTab"
+        app:layout_constraintEnd_toStartOf="@id/line"
+        android:layout_marginTop="@dimen/margin_thin"
+        android:layout_marginEnd="@dimen/margin_thinExtra"
+        app:selected="true"
+        />
+    <View
+        android:id="@+id/line"
+        android:layout_width="@dimen/line_light"
+        android:layout_height="@dimen/tab_thin"
+        android:background="@color/app_greyLight"
+        app:layout_constraintTop_toTopOf="@id/pageTab"
+        app:layout_constraintEnd_toStartOf="@id/btnList"
+        android:layout_marginTop="@dimen/margin_thin"
+        android:layout_marginEnd="@dimen/margin_thinExtra"
+        />
+    <com.skeleton.component.button.ImageTextButton
+        android:id="@+id/btnList"
+        android:layout_width="@dimen/icon_regular"
+        android:layout_height="@dimen/icon_regular"
+        app:defaultImage="@drawable/ic_gallery"
+        app:defaultTextColor="@color/app_greyLight"
+        app:activeTextColor="@color/app_greyDeep"
+        app:layout_constraintTop_toTopOf="@id/pageTab"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_thin"
+        android:layout_marginEnd="@dimen/margin_light"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/pageTab"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        android:layout_marginTop="@dimen/margin_medium"
+        >
+        <com.raftgroup.pupping.scene.page.explore.component.UserMap
+            android:id="@+id/userMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <com.raftgroup.pupping.scene.component.button.SortButton
+            android:id="@+id/btnSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/margin_thin"
+            android:layout_marginEnd="@dimen/margin_light"
+            />
+        <com.raftgroup.pupping.scene.component.list.UserGrid
+            android:id="@+id/userList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="45dp"
+
+            />
+    </FrameLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.lib.util
 
 import android.content.Context
 import android.graphics.*
+import androidx.annotation.ColorRes
 import java.io.*
 import kotlin.math.roundToInt
 
@@ -106,6 +107,36 @@ fun Bitmap.swapVertical(): Bitmap {
         matrix,
         true
     )
+}
+
+fun Bitmap.cropCircle(stroke:Float? = null, strokeColor: Int = Color.BLACK): Bitmap {
+    val output = Bitmap.createBitmap(
+        this.width,
+        this.height, Bitmap.Config.ARGB_8888
+    )
+    val canvas = Canvas(output)
+    val color = -0xbdbdbe
+    val paint = Paint()
+    val rect = Rect(0, 0, width, height)
+    paint.isAntiAlias = true
+    canvas.drawARGB(0, 0, 0, 0)
+    paint.color = color
+    val rd = width / 2.0f
+    canvas.drawCircle(
+        rd, height / 2.0f,
+        rd, paint
+    )
+    paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+    canvas.drawBitmap(this, rect, rect, paint)
+    stroke?.let { st->
+        val paintStroke = Paint()
+        paintStroke.style = Paint.Style.STROKE
+        paintStroke.strokeCap = Paint.Cap.ROUND
+        paintStroke.strokeWidth =  st
+        paintStroke.color = strokeColor
+        canvas.drawCircle(rd, rd, rd-(st/2), paintStroke)
+    }
+    return output
 }
 
 

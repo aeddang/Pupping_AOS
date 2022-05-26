@@ -1,9 +1,11 @@
 package com.raftgroup.pupping.scene.page.viewmodel
 
 import android.content.pm.ActivityInfo
+import androidx.lifecycle.MutableLiveData
 import com.lib.page.PageModel
 import com.lib.page.PageObject
 import com.raftgroup.pupping.R
+import com.raftgroup.pupping.store.RepositoryStatus
 
 class ActivityModel : PageModel{
     override var isPageInit: Boolean = false
@@ -31,6 +33,7 @@ class ActivityModel : PageModel{
         }
         return ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
+    override fun getCloseExceptions(): List<String> = arrayOf(PageID.Walk, PageID.Mission).map { it.value }
 
     private val disableHistoryPages = arrayOf(PageID.Intro, PageID.Login).map { it.value }
     override fun isHistoryPage(page: PageObject): Boolean {
@@ -44,7 +47,7 @@ class ActivityModel : PageModel{
         return f != -1
     }
 
-    private val verticalPages = arrayListOf<String>()
+    private val verticalPages = arrayOf(PageID.Walk, PageID.Mission).map { it.value }
     fun isVerticalPage(pageValue:String): Boolean {
         val f= verticalPages.indexOf(pageValue)
         return f != -1
@@ -56,4 +59,6 @@ class ActivityModel : PageModel{
         return f != -1
     }
 
+    val useBottomTab = MutableLiveData<Boolean>(false)
+    val isPlaying = MutableLiveData<Boolean>(false)
 }

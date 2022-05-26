@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brand_bg">
+    <com.raftgroup.pupping.scene.component.info.UserProfileImage
+        android:id="@+id/imgProfile"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        />
+    <com.skeleton.component.view.RoundView
+        android:id="@+id/scrollBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="280dp"
+        android:radius="@dimen/radius_regular"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="true"
+            android:background="@color/app_white"
+            android:scrollbars="none">
+            <LinearLayout
+                android:id="@+id/body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/margin_lightExtra"
+                android:paddingBottom="@dimen/app_bottom"
+                >
+                <com.raftgroup.pupping.scene.component.info.UserProfileDescription
+                    android:id="@+id/profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_regular"
+                    />
+                <com.raftgroup.pupping.scene.component.list.PetList
+                    android:id="@+id/petList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    />
+                <com.raftgroup.pupping.scene.component.list.PictureList
+                    android:id="@+id/pictureList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/margin_regular"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+    </com.skeleton.component.view.RoundView>
+
+</FrameLayout>
