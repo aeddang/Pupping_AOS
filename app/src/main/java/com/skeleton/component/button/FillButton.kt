@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 import com.lib.page.PageUI
 import com.raftgroup.pupping.R
@@ -85,6 +86,7 @@ open class FillButton : PageUI {
                 this.activeTextColor = context.getColor( R.color.brand_thirdly )
                 this.defaultBgColor = context.getColor( R.color.app_white )
                 this.activeBgColor = context.getColor( R.color.app_white )
+                this.useLine = true
             }
             PageButtonType.Select -> {
                 this.radius = context.resources.getDimension(R.dimen.radius_medium)
@@ -127,6 +129,7 @@ open class FillButton : PageUI {
 
     @DrawableRes
     var defaultImageRes:Int? = null
+
     @DrawableRes
     var activeImageRes:Int? = null
 

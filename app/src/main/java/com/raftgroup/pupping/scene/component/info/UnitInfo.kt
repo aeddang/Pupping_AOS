@@ -38,20 +38,20 @@ class UnitInfo : PageUI {
     }
 
     fun setText(@StringRes text:Int, @ColorRes color:Int = R.color.app_grey){
-        defaultTextColor = color
+        defaultTextColor = context.getColor(color)
         this.text = context.getString(text)
         this.selected = false
     }
 
     fun setText(text:String, @ColorRes color:Int = R.color.app_grey){
-        defaultTextColor = color
+        defaultTextColor = context.getColor(color)
         this.text = text
         this.selected = false
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     fun setInfo(@DrawableRes icon:Int, text:String, @ColorRes color:Int = R.color.app_grey){
-        defaultTextColor = color
+        defaultTextColor = context.getColor(color)
         defaultImage = context.getDrawable(icon)
         this.selected = false
         this.text = text

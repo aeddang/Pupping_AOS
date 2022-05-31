@@ -53,7 +53,7 @@
             android:layout_width="@dimen/icon_regularExtra"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:defaultImage="@drawable/ic_delete"
+            app:defaultImage="@drawable/ic_trash"
             app:defaultTextColor="@color/app_white"
             android:layout_weight="0"
             android:layout_marginLeft="@dimen/margin_tiny"

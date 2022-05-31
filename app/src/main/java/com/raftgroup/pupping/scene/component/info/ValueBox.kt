@@ -51,7 +51,11 @@ class ValueBox : PageUI {
     var value:String? = null
         set(value) {
             field = value
-            binding.textValue.text = field
+            if (field?.isEmpty() != false) binding.textValue.visibility = View.GONE
+            else {
+                binding.textValue.visibility = View.VISIBLE
+                binding.textValue.text = field
+            }
         }
 
     override var selected:Boolean? = null

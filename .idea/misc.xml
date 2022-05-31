@@ -22,6 +22,12 @@
         <entry key="app/src/main/res/drawable/bg_login.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/ic_add_fill.xml" value="0.1825" />
+        <entry key="app/src/main/res/drawable/ic_arrow_left.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/ic_arrow_right.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/ic_check.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/ic_close.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/ic_destination_header.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/ic_dog01.xml" value="0.112" />
         <entry key="app/src/main/res/drawable/ic_dog02.xml" value="0.112" />
@@ -34,12 +40,17 @@
         <entry key="app/src/main/res/drawable/ic_gnb_walk.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/ic_gnb_walk_ac.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/ic_hard.xml" value="0.1825" />
+        <entry key="app/src/main/res/drawable/ic_img_present.xml" value="0.173" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/ic_like.xml" value="0.244" />
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.2215" />
         <entry key="app/src/main/res/drawable/ic_man.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/ic_man_with_dog.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/ic_normal.xml" value="0.2215" />
+        <entry key="app/src/main/res/drawable/ic_pause.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_point.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/ic_report.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/ic_resume.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_settings.xml" value="0.2215" />
         <entry key="app/src/main/res/drawable/ic_speech_bubble.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/ic_speed.xml" value="0.2215" />
@@ -78,7 +89,7 @@
         <entry key="app/src/main/res/layout/cp_line_graph_raw.xml" value="0.27661393758016245" />
         <entry key="app/src/main/res/layout/cp_location_info.xml" value="0.2321504916631039" />
         <entry key="app/src/main/res/layout/cp_menu_tab.xml" value="0.2894399315946986" />
-        <entry key="app/src/main/res/layout/cp_mission_info.xml" value="0.26700744628906253" />
+        <entry key="app/src/main/res/layout/cp_mission_info.xml" value="0.22433460076045628" />
         <entry key="app/src/main/res/layout/cp_page_tab.xml" value="0.25" />
         <entry key="app/src/main/res/layout/cp_pet_about.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/cp_pet_history.xml" value="0.1987179487179487" />
@@ -96,19 +107,30 @@
         <entry key="app/src/main/res/layout/cp_picture_list_item.xml" value="0.23300555793073963" />
         <entry key="app/src/main/res/layout/cp_picture_list_set.xml" value="0.24754168448054725" />
         <entry key="app/src/main/res/layout/cp_play_info.xml" value="0.20179563916203505" />
+        <entry key="app/src/main/res/layout/cp_play_mission_info.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/cp_play_profile_info.xml" value="0.4124137931034483" />
+        <entry key="app/src/main/res/layout/cp_play_summry.xml" value="0.14324569356300998" />
         <entry key="app/src/main/res/layout/cp_play_unit_info.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/cp_play_value_info.xml" value="0.20179563916203505" />
         <entry key="app/src/main/res/layout/cp_point_button.xml" value="0.35054347826086957" />
         <entry key="app/src/main/res/layout/cp_point_info.xml" value="0.17147922998986828" />
+        <entry key="app/src/main/res/layout/cp_profile_image.xml" value="0.1891025641025641" />
+        <entry key="app/src/main/res/layout/cp_redeem_info.xml" value="0.27983539094650206" />
         <entry key="app/src/main/res/layout/cp_select.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/cp_select_date_picker.xml" value="0.20820863616930313" />
         <entry key="app/src/main/res/layout/cp_select_image_picker.xml" value="0.20820863616930313" />
+        <entry key="app/src/main/res/layout/cp_select_profile_item.xml" value="0.375" />
         <entry key="app/src/main/res/layout/cp_select_radio.xml" value="0.20820863616930313" />
         <entry key="app/src/main/res/layout/cp_select_radio_item.xml" value="0.20820863616930313" />
         <entry key="app/src/main/res/layout/cp_select_tab.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/cp_sort_button.xml" value="0.24711415134672937" />
         <entry key="app/src/main/res/layout/cp_speech_bubble_button.xml" value="0.25" />
         <entry key="app/src/main/res/layout/cp_title_tab.xml" value="0.26849080803762293" />
         <entry key="app/src/main/res/layout/cp_unit_info.xml" value="0.35054347826086957" />
+        <entry key="app/src/main/res/layout/cp_user_list_item.xml" value="0.19471947194719472" />
+        <entry key="app/src/main/res/layout/cp_user_map.xml" value="0.2778965369816161" />
+        <entry key="app/src/main/res/layout/cp_user_profile_description.xml" value="0.2894399315946986" />
+        <entry key="app/src/main/res/layout/cp_user_profile_image.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/cp_user_profile_info.xml" value="0.25" />
         <entry key="app/src/main/res/layout/cp_value_box.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/cp_waypoint_info.xml" value="0.45" />
@@ -121,6 +143,7 @@
         <entry key="app/src/main/res/layout/page_home.xml" value="0.22756410256410256" />
         <entry key="app/src/main/res/layout/page_intro.xml" value="0.29739583333333336" />
         <entry key="app/src/main/res/layout/page_login.xml" value="0.2453125" />
+        <entry key="app/src/main/res/layout/page_mission.xml" value="0.25224454895254383" />
         <entry key="app/src/main/res/layout/page_my.xml" value="0.19581017528858485" />
         <entry key="app/src/main/res/layout/page_picture.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/page_picture_list.xml" value="0.24754168448054725" />
@@ -128,7 +151,13 @@
         <entry key="app/src/main/res/layout/page_profile_modify.xml" value="0.21504916631038906" />
         <entry key="app/src/main/res/layout/page_profile_regist.xml" value="0.20820863616930313" />
         <entry key="app/src/main/res/layout/page_report.xml" value="0.17101325352714836" />
+        <entry key="app/src/main/res/layout/page_select_profile.xml" value="0.2496793501496366" />
         <entry key="app/src/main/res/layout/page_splash.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/page_user.xml" value="0.2894399315946986" />
+        <entry key="app/src/main/res/layout/page_user_list.xml" value="0.2894399315946986" />
+        <entry key="app/src/main/res/layout/page_walk.xml" value="0.2099644128113879" />
+        <entry key="app/src/main/res/layout/page_walk_completed.xml" value="0.23386062419837536" />
+        <entry key="app/src/main/res/layout/page_walk_preview.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/ui_check_button.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/ui_circle_button.xml" value="0.16666666666666666" />
         <entry key="app/src/main/res/layout/ui_circle_indicator.xml" value="0.2546875" />
@@ -141,6 +170,7 @@
         <entry key="app/src/main/res/layout/ui_image_text_button.xml" value="0.35054347826086957" />
         <entry key="app/src/main/res/layout/ui_input_cell.xml" value="0.25" />
         <entry key="app/src/main/res/layout/ui_next_button.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/ui_profile.xml" value="0.2894399315946986" />
         <entry key="app/src/main/res/layout/ui_radio_button.xml" value="0.20820863616930313" />
         <entry key="app/src/main/res/layout/ui_speech_bubble_button.xml" value="0.35054347826086957" />
         <entry key="app/src/main/res/layout/ui_swipe_listview.xml" value="0.2894399315946986" />

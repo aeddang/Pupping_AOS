@@ -52,10 +52,16 @@ fun String.toDecimalFormat(): String {
     return decimal.toString()
 }
 
+fun String.toFixLength(l:Int, prefix:String = "000000"): String {
+    if (length >= l) { return this }
+    val fix:String = prefix + this
+    return fix.takeLast(l)
+}
+
 fun Double.secToMinString(div:String = ":") : String {
     val sec = this.toInt() % 60
     val min = floor( this / 60.0 ).toInt()
-    return min.toString() + div + sec.toString()
+    return min.toString().toFixLength(2) + div + sec.toString().toFixLength(2)
 }
 
 fun Double.toDecimal(divid:Double = 1.0 ,f:Int = 0) : String {

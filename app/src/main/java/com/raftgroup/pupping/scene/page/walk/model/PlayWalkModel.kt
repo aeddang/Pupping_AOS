@@ -1,6 +1,7 @@
 package com.raftgroup.pupping.scene.page.walk.model
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.location.Location
 import android.os.Looper
 import androidx.lifecycle.LifecycleOwner
@@ -30,10 +31,11 @@ enum class PlayWalkStatus {
 }
 enum class PlayWalkType {
     Mission, Walk;
-    fun getCloseMsg():Int {
+    fun getCloseMsg(ctx:Context):String {
         return when (this){
-            PlayWalkType.Walk -> R.string.alertClosePlayWalk
-            PlayWalkType.Mission -> R.string.alertClosePlayMission
+            PlayWalkType.Walk -> ctx.resources.getString(R.string.alertClosePlayWalk).replace("%s",newValue = PlayWalkModel.limitedDestance.toString())
+            PlayWalkType.Mission -> ctx.resources.getString(R.string.alertClosePlayMission)
+
         }
     }
 
@@ -47,9 +49,13 @@ data class PlayDestination (
 )
 
 @SuppressLint("MissingPermission")
-class PlayWalkModel(val type:PlayWalkType = PlayWalkType.Walk, repo: PageRepository): BasePageViewModel(repo){
+class PlayWalkModel(repo: PageRepository): BasePageViewModel(repo){
+    companion object{
+        const val limitedDestance:Double = 1.0
+    }
     private val appTag = javaClass.simpleName
     private var locationObserver:FusedLocationProviderClient? = null
+    var type:PlayWalkType = PlayWalkType.Walk
     var mission:Mission? = null; private set
     var startTime:Date = Date()
     val event = MutableLiveData<PlayWalkEvent?>()
@@ -98,11 +104,11 @@ class PlayWalkModel(val type:PlayWalkType = PlayWalkType.Walk, repo: PageReposit
             p0?.lastLocation?.let { loc->
                 if (event.value?.type == PlayWalkEventType.Start) event.value = PlayWalkEvent(PlayWalkEventType.Resume)
                 currentLocation.value?.let { prev->
-                    val results = FloatArray(0)
+                    val results = FloatArray(1)
                     Location.distanceBetween(prev.latitude, prev.longitude, loc.latitude, loc.longitude, results)
                     playDistence.value = playDistence.value?.plus(results[0])
                 }
-                playTime.value = Date().time - startTime.time
+                playTime.value = (Date().time - startTime.time)/1000L
                 currentLocation.value = LatLng(loc.latitude, loc.longitude)
                 currentProgress.value = progress
             }
@@ -185,7 +191,7 @@ class PlayWalkModel(val type:PlayWalkType = PlayWalkType.Walk, repo: PageReposit
                 else -> {
                     val destination = currentDestination?.location ?: return 0.0
                     val location = currentLocation.value ?: return 0.0
-                    val results = FloatArray(0)
+                    val results = FloatArray(1)
                     Location.distanceBetween(location.latitude, location.longitude, destination.latitude, destination.longitude, results)
                     val move = results[0].toDouble()
                     currentDistenceFromDestination.value = move
@@ -211,7 +217,7 @@ class PlayWalkModel(val type:PlayWalkType = PlayWalkType.Walk, repo: PageReposit
             val start = currentDestination?.location ?: startLocation ?: return
             val current = destinations[playStep]
             currentDestination = current
-            val results = FloatArray(0)
+            val results = FloatArray(1)
             Location.distanceBetween(current.location.latitude, current.location.longitude, start.latitude, start.longitude, results)
             destinationDistence = results[0].toDouble()
             event.value = PlayWalkEvent(PlayWalkEventType.Next, data = playStep)

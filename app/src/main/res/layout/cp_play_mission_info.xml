@@ -28,13 +28,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|top"
-                android:layout_marginTop="@dimen/margin_tiny"
-                android:layout_marginEnd="@dimen/margin_tiny"
+                android:layout_marginTop="@dimen/margin_light"
+                android:layout_marginEnd="@dimen/margin_light"
                 />
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/margin_thin">
+                android:padding="@dimen/margin_light">
                 <ImageView
                     android:id="@+id/icon"
                     android:src="@drawable/ic_flag"
@@ -102,6 +102,7 @@
                     android:radius="@dimen/radius_thin"
                     android:background="@color/app_white"
                     android:padding="@dimen/margin_thin"
+                    android:layout_marginTop="@dimen/margin_thin"
                     >
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -111,6 +112,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:defaultImage="@drawable/ic_time"
+                            app:defaultTextColor="@color/app_grey"
                             android:title=""
                             android:layout_weight="1"
                             />
@@ -119,6 +121,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:defaultImage="@drawable/ic_speed"
+                            app:defaultTextColor="@color/app_grey"
                             android:title=""
                             android:layout_weight="1"
                             />
@@ -127,6 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:defaultImage="@drawable/ic_distence"
+                            app:defaultTextColor="@color/app_grey"
                             android:title=""
                             android:layout_weight="1"
                             />

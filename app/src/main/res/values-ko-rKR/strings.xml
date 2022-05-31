@@ -54,7 +54,7 @@
     <string name="alertPrevPlayMission">현재 수행중인 미션이 있어요. 종료하고 새로운 미션을 시작할까요?</string>
     <string name="alertPrevPlayWalk">산책을 종료하고 미션을 시작할까요?</string>
     <string name="alertClosePlayMission">미션을 종료할까요? 저장되지 않은 정보는 모두 지워집니다.</string>
-    <string name="alertClosePlayWalk">산책을 종료하시겠어요? %sm 이상 상책하셔야 보상을 받을수 있습니다.</string>
+    <string name="alertClosePlayWalk">산책을 종료하시겠어요? %sm 이상 산책하셔야 보상을 받을수 있습니다.</string>
     <string name="alertNeedProfileRegist">함께할 강아지가 없어요. 강아지를 등록한 후 이용해주세요.</string>
     <string name="alertSelectProfile">함께할 강아지를 선택해주세요</string>
     <string name="alertCompletedNeedPicture">반려견과 함깨한 사진이 필요합니다.</string>

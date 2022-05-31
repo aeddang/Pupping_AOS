@@ -37,35 +37,35 @@ class WaypointInfo : PageUI {
         binding.line.visibility = View.GONE
     }
     @SuppressLint("UseCompatLoadingForDrawables")
-    fun setStart(text:String?, @ColorRes color:Int?= null):WaypointInfo{
-        defaultImage = context.getDrawable(R.drawable.ic_waypoint_header)
-        defaultTextColor = color ?: R.color.app_grey
+    fun setStart(text:String?, @ColorRes color:Int?= null, isOn:Boolean = false):WaypointInfo{
+        defaultImage = context.getDrawable(if (isOn) R.drawable.ic_waypoint_header_on else R.drawable.ic_waypoint_header)
+        defaultTextColor = context.getColor( color ?: R.color.app_grey )
         binding.line.visibility = View.GONE
         this.text = text
         this.selected = false
         return this
     }
     @SuppressLint("UseCompatLoadingForDrawables")
-    fun setPoint(text:String?, @ColorRes color:Int?= null):WaypointInfo{
-        defaultImage = context.getDrawable(R.drawable.ic_waypoint_header)
-        defaultTextColor = color ?: R.color.app_grey
-        binding.line.visibility = View.VISIBLE
+    fun setPoint(text:String?, @ColorRes color:Int?= null, isOn:Boolean = false, isLine:Boolean = true):WaypointInfo{
+        defaultImage = context.getDrawable(if (isOn) R.drawable.ic_waypoint_header_on else  R.drawable.ic_waypoint_header)
+        defaultTextColor = context.getColor( color ?: R.color.app_grey)
+        binding.line.visibility = if(isLine) View.VISIBLE else View.GONE
         this.text = text
         this.selected = false
         return this
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    fun setDestination(text:String?, @ColorRes color:Int?= null):WaypointInfo{
-        defaultImage = context.getDrawable(R.drawable.ic_destination_header)
-        defaultTextColor = color ?: R.color.brand_primary
-        binding.line.visibility = View.VISIBLE
+    fun setDestination(text:String?, @ColorRes color:Int?= null, isOn:Boolean = false, isLine:Boolean = true):WaypointInfo{
+        defaultImage = context.getDrawable(if (isOn) R.drawable.ic_destination_header_on else  R.drawable.ic_destination_header)
+        defaultTextColor = context.getColor(color ?: R.color.brand_primary)
+        binding.line.visibility = if(isLine) View.VISIBLE else View.GONE
         this.text = text
         this.selected = false
         return this
     }
     fun setText(text:String?, @ColorRes color:Int, isConnected:Boolean = false):WaypointInfo{
-        defaultTextColor = color
+        defaultTextColor = context.getColor(color)
         binding.line.visibility = if (isConnected ) View.VISIBLE else View.GONE
         this.text = text
         this.selected = false

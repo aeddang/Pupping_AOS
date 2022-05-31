@@ -27,11 +27,14 @@ import com.lib.page.PagePresenter
 import com.lib.page.PageView
 import com.lib.page.PageViewModel
 import com.lib.util.cropCircle
+import com.lib.util.secToMinString
 import com.lib.util.size
+import com.lib.util.toDecimal
 import com.raftgroup.pupping.R
 import com.raftgroup.pupping.databinding.CpGoogleMapBinding
 import com.raftgroup.pupping.databinding.CpPlaySummryBinding
 import com.raftgroup.pupping.scene.page.viewmodel.FragmentProvider
+import com.raftgroup.pupping.scene.page.walk.model.PlayWalkModel
 import com.raftgroup.pupping.store.provider.model.User
 import com.skeleton.component.graph.Graph
 import com.skeleton.component.graph.GraphBuilder
@@ -71,6 +74,19 @@ class PlaySummry : PageComponent {
         super.onLifecycleOwner(owner)
     }
     override fun onPageViewModel(vm: PageViewModel): PageView {
-        return super.onPageViewModel(vm)
+        super.onPageViewModel(vm)
+        val owner = lifecycleOwner ?: return this
+        val playWalkModel = vm as? PlayWalkModel ?: return this
+        val m = context.getString(R.string.m)
+        playWalkModel.playDistence.observe(owner) { des ->
+            binding.textDistence.text = "${des.toDecimal(f=1)}$m"
+        }
+        playWalkModel.playTime.observe(owner) { t ->
+            binding.textTime.text = t.toDouble().secToMinString()
+        }
+        playWalkModel.currentProgress.observe(owner) { progress ->
+            graphBuilder?.show(progress)
+        }
+        return this
     }
 }

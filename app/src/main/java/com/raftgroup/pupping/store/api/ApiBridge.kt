@@ -2,8 +2,8 @@ package com.raftgroup.pupping.store.api
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.lib.util.toFile
-import com.lib.util.toFormatString
+import android.util.Size
+import com.lib.util.*
 import com.raftgroup.pupping.BuildConfig
 import com.raftgroup.pupping.store.api.rest.*
 import com.raftgroup.pupping.store.provider.model.ModifyPetProfileData
@@ -37,6 +37,8 @@ class ApiBridge(
     private val album: AlbumApi = networkFactory.getRetrofit(BuildConfig.APP_REST_ADDRESS, listOf( interceptor ) ).create(
         AlbumApi::class.java)
 
+    private val vision: VisionApi = networkFactory.getRetrofit(BuildConfig.APP_REST_ADDRESS, listOf( interceptor ) ).create(
+        VisionApi::class.java)
 
     @Suppress("UNCHECKED_CAST")
     fun getUpdateUserProfile(apiQ: ApiQ, snsUser:SnsUser?) = runBlocking {
@@ -73,6 +75,7 @@ class ApiBridge(
             ApiType.RegistAlbumPicture -> getRegistAlbumPicture(apiQ.contentID, apiQ.requestData as? AlbumData)
             ApiType.UpdateAlbumPictures -> getUpdateLikeAlbumPicture(apiQ.contentID, apiQ.requestData as? Boolean)
             ApiType.DeleteAlbumPictures -> album.delete(apiQ.contentID)
+            ApiType.CheckHumanWithDog -> getVisionCheck(apiQ.requestData as? Bitmap)
         }
     }
 
@@ -159,6 +162,17 @@ class ApiBridge(
         val params = java.util.HashMap<String, Any>()
         params["items"] = arrayOf(param)
         album.put(params)
+    }
+
+    private fun getVisionCheck(data:Bitmap?) = runBlocking {
+
+        var image: MultipartBody.Part? = null
+        data?.let {resource->
+            val file = resource.toFile(context)
+            val imgBody: RequestBody? = RequestBody.create(MediaType.parse("image/jpeg"),file )
+            image = MultipartBody.Part.createFormData("contents", "visionImage.jpg" , imgBody)
+        }
+        vision.post(image)
     }
 
     private  fun getRequestBody(value:String?):RequestBody?{

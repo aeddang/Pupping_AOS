@@ -35,19 +35,19 @@ class ActivityModel : PageModel{
     }
     override fun getCloseExceptions(): List<String> = arrayOf(PageID.Walk, PageID.Mission).map { it.value }
 
-    private val disableHistoryPages = arrayOf(PageID.Intro, PageID.Login).map { it.value }
+    private val disableHistoryPages = arrayOf(PageID.Intro, PageID.Login, PageID.SelectProfile, PageID.WalkCompleted, PageID.MissionCompleted).map { it.value }
     override fun isHistoryPage(page: PageObject): Boolean {
         val f= disableHistoryPages.indexOf(page.pageID)
         return f == -1
     }
 
-    private val fadeInPages = arrayOf(PageID.Intro, PageID.Picture).map { it.value }
+    private val fadeInPages = arrayOf(PageID.Intro, PageID.Picture, PageID.SelectProfile, PageID.WalkCompleted, PageID.MissionCompleted).map { it.value }
     fun isFadeInPage(pageValue:String): Boolean {
         val f= fadeInPages.indexOf(pageValue)
         return f != -1
     }
 
-    private val verticalPages = arrayOf(PageID.Walk, PageID.Mission).map { it.value }
+    private val verticalPages = arrayOf(PageID.Walk, PageID.Mission, PageID.MissionPreview).map { it.value }
     fun isVerticalPage(pageValue:String): Boolean {
         val f= verticalPages.indexOf(pageValue)
         return f != -1
@@ -61,4 +61,5 @@ class ActivityModel : PageModel{
 
     val useBottomTab = MutableLiveData<Boolean>(false)
     val isPlaying = MutableLiveData<Boolean>(false)
+    val isMovingLayer = MutableLiveData<Boolean>(false)
 }

@@ -149,18 +149,24 @@ class HistoryList : PageComponent {
         }
         @SuppressLint("SetTextI18n")
         override fun setData(data: History, idx:Int){
+            binding.imgLv.visibility = View.GONE
+            binding.textTitle.visibility = View.GONE
+            binding.textDesc.visibility = View.GONE
             setExpand(data.isExpanded)
             Glide.with(context)
                 .load(data.imagePath)
                 .error(R.drawable.img_empty_user_profile)
                 .into(binding.img)
             data.lv?.icon()?.let {
+                binding.imgLv.visibility = View.VISIBLE
                 binding.imgLv.setImageResource(it)
             }
             data.title?.let {
+                binding.textTitle.visibility = View.VISIBLE
                 binding.textTitle.text = it
             }
             data.description?.let {
+                binding.textDesc.visibility = View.VISIBLE
                 binding.textDesc.text = it
             }
             data.date?.let {
@@ -180,6 +186,7 @@ class HistoryList : PageComponent {
                 data.isExpanded = !data.isExpanded
                 setExpand(data.isExpanded)
             }
+
         }
         private fun setExpand(isExpanded:Boolean){
 

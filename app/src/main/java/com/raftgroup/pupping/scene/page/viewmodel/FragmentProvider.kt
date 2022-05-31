@@ -12,7 +12,10 @@ import com.raftgroup.pupping.scene.page.my.PageProfileModify
 import com.raftgroup.pupping.scene.page.my.PageProfileRegist
 import com.raftgroup.pupping.scene.page.popup.*
 import com.raftgroup.pupping.scene.page.report.PageReport
+import com.raftgroup.pupping.scene.page.walk.PageSelectProfile
 import com.raftgroup.pupping.scene.page.walk.PageWalk
+import com.raftgroup.pupping.scene.page.walk.PageWalkCompleted
+import com.raftgroup.pupping.scene.page.walk.PageWalkPreview
 import com.raftgroup.pupping.scene.page.walk.model.PlayWalkType
 
 
@@ -20,7 +23,8 @@ class FragmentProvider : PageProvider{
     fun getPageObject(pageID: PageID) :PageObject {
         val obj = PageObject(pageID.value, pageID.position)
         when(pageID){
-            PageID.Walk, PageID.Mission -> obj.isTop = true
+            PageID.Walk, PageID.Mission, PageID.SelectProfile,
+            PageID.WalkCompleted , PageID.MissionCompleted -> obj.isTop = true
             else -> {}
         }
         return obj
@@ -49,6 +53,9 @@ class FragmentProvider : PageProvider{
             PageID.User.value -> PageUser()
             PageID.Walk.value -> PageWalk(PlayWalkType.Walk)
             PageID.Mission.value -> PageWalk(PlayWalkType.Mission)
+            PageID.MissionPreview.value -> PageWalkPreview(PlayWalkType.Mission)
+            PageID.SelectProfile.value -> PageSelectProfile()
+            PageID.WalkCompleted.value, PageID.MissionCompleted.value -> PageWalkCompleted()
             else -> PageIntro()
         }
     }
@@ -66,11 +73,15 @@ enum class PageID(val value: String, val position: Int = 9999){
     PictureList("PictureList", 999),
     Picture("Picture", 999),
     Profile("Profile", 999),
+    SelectProfile("SelectProfile", 999),
     History("History", 999),
     Report("Report", 999),
     User("User", 999),
     Walk("Walk", 101),
-    Mission("Mission", 999)
+    Mission("Mission", 999),
+    MissionPreview("MissionPreview", 999),
+    WalkCompleted("WalkCompleted",999),
+    MissionCompleted("MissionCompleted", 999)
 }
 
 

@@ -15,23 +15,52 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/transparent_black45"/>
-        <FrameLayout
+        <com.skeleton.component.view.RoundView
             android:id="@+id/body"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:elevation="@dimen/margin_thin"
             android:background="@color/app_white">
             <com.raftgroup.pupping.scene.page.walk.component.PlayMap
                 android:id="@+id/playMap"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
+            <com.raftgroup.pupping.scene.page.walk.component.PlayMissionInfo
+                android:id="@+id/playMissionInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_heavy"
+                />
+            <com.skeleton.component.view.RoundView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:radius="@dimen/radius_regular"
+                android:background="@color/app_white"
+                android:elevation="@dimen/margin_light"
+                android:layout_gravity="bottom"
+                >
+                <com.raftgroup.pupping.scene.page.walk.component.PlayInfo
+                    android:id="@+id/playInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    />
+            </com.skeleton.component.view.RoundView>
+            <com.raftgroup.pupping.scene.page.walk.component.PlaySummry
+                android:id="@+id/playSummry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
             <com.skeleton.component.view.RoundView
                 android:layout_width="@dimen/icon_mediumExtra"
                 android:layout_height="@dimen/icon_mediumExtra"
                 android:radius="@dimen/icon_mediumExtraHalf"
                 android:background="@color/app_white"
-                android:elevation="@dimen/margin_thin"
-                android:layout_margin="@dimen/margin_regular"
+                android:elevation="@dimen/margin_micro"
+                android:layout_marginTop="@dimen/margin_thin"
+                android:layout_marginHorizontal="@dimen/margin_light"
                 >
                 <com.skeleton.component.button.ImageTextButton
                     android:id="@+id/btnDragOnOff"
@@ -49,8 +78,9 @@
                 android:layout_gravity="end"
                 android:radius="@dimen/icon_mediumExtraHalf"
                 android:background="@color/app_greyDeep"
-                android:elevation="@dimen/margin_thin"
-                android:layout_margin="@dimen/margin_regular"
+                android:elevation="@dimen/margin_micro"
+                android:layout_marginTop="@dimen/margin_thin"
+                android:layout_marginHorizontal="@dimen/margin_light"
                 >
                 <com.skeleton.component.button.ImageTextButton
                     android:id="@+id/btnClose"
@@ -67,11 +97,12 @@
                 android:layout_height="@dimen/button_medium"
                 android:layout_gravity="bottom"
                 android:layout_marginHorizontal="@dimen/margin_light"
-                android:layout_marginBottom="@dimen/app_bottom"
+                android:layout_marginBottom="@dimen/margin_thin"
                 android:title="@string/btnStart"
                 android:radius="@dimen/radius_lightExtra"
                 app:selected="true"
                 />
-        </FrameLayout>
+        </com.skeleton.component.view.RoundView>
+
     </com.lib.page.PageDragingView>
 </FrameLayout>

@@ -20,7 +20,7 @@ open class BasePageViewModel(val repo: PageRepository) : ViewModel(), PageViewMo
     val pageProvider :FragmentProvider get() = repo.pageProvider
     val dataProvider : DataProvider get() = repo.dataProvider
 
-    protected var owner: LifecycleOwner? = null
+    var owner: LifecycleOwner? = null; protected set
 
     @CallSuper
     override fun onCreateView(owner: LifecycleOwner, pageObject: PageObject?) {

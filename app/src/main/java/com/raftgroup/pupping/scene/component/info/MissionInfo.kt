@@ -31,14 +31,14 @@ class  MissionInfo: PageComponent, ListItem<Mission> {
         binding.speedInfo.setText(data.viewSpeed(context))
         binding.distenceInfo.setText(data.viewDistence(context))
         binding.wayPointArea.removeAllViews()
-        data.start?.let {
-            binding.wayPointArea.addView(WaypointInfo(context).setStart(it.name))
-        }
-        data.waypoints.forEach {
-            binding.wayPointArea.addView(WaypointInfo(context).setPoint(it.name))
+
+        data.waypoints.forEachIndexed { idx, p->
+            val point = WaypointInfo(context).setPoint(p.name, isLine = idx != 0)
+            binding.wayPointArea.addView(point)
         }
         data.destination?.let {
-            binding.wayPointArea.addView(WaypointInfo(context).setDestination(it.name))
+            val point = WaypointInfo(context).setDestination(it.name, isLine = data.waypoints.isNotEmpty())
+            binding.wayPointArea.addView(point)
         }
     }
 

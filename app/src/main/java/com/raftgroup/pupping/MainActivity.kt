@@ -107,7 +107,7 @@ import javax.inject.Inject
         }
         isInit = true
         PageLog.d("onPageInit page start",  appTag)
-        pageStart(pageProvider.getPageObject(PageID.My))
+        pageStart(pageProvider.getPageObject(PageID.Explore))
 
         /* push 이동 체크
         if !appObserverMove(self.appObserver.page) {

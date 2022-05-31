@@ -36,6 +36,7 @@ import com.raftgroup.pupping.store.mission.MissionManager
 import com.raftgroup.pupping.store.provider.DataProvider
 import com.raftgroup.pupping.store.provider.model.PetProfile
 import com.skeleton.component.dialog.Alert
+import com.skeleton.component.dialog.Select
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -92,7 +93,7 @@ class PageHome : PageFragment(), PageRequestPermission{
                 binding.listBody.addView(info)
                 info.setData(mission)
                 info.setOnClickListener {
-                    startMission(mission)
+                    onMissionSelect(mission)
                 }
             }
         }
@@ -180,6 +181,30 @@ class PageHome : PageFragment(), PageRequestPermission{
                     .addParam(PageParam.data, mission)
             )
         }
+    }
+
+    private fun onMissionSelect(mission:Mission){
+        Select.Builder(context)
+            .setResButtons(arrayOf(
+                R.string.btnPreview,
+                R.string.btnStart
+            ))
+            .setSelected(1)
+            .onSelected { selectIdx->
+                when(selectIdx) {
+                    0 -> {
+                        pagePresenter.openPopup(
+                            pageProvider.getPageObject(PageID.MissionPreview)
+                                .addParam(PageParam.data, mission)
+                        )
+                    }
+                    1 -> {
+                        startMission(mission)
+                    }
+                    else -> {}
+                }
+            }
+            .show()
     }
 
     override fun onTransactionCompleted() {

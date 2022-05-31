@@ -15,6 +15,7 @@ import com.raftgroup.pupping.store.database.DataBaseManager
 import com.raftgroup.pupping.store.mission.MissionGenerator
 import com.raftgroup.pupping.store.mission.MissionManager
 import com.raftgroup.pupping.store.preference.StoragePreference
+import com.skeleton.module.ViewModelFactory
 import com.skeleton.module.network.NetworkFactory
 import com.skeleton.sns.SnsManager
 
@@ -92,6 +93,7 @@ object StoreModule {
     @Provides
     fun provideMissionManager(missionGenerator:MissionGenerator): MissionManager = MissionManager(missionGenerator)
 
+
     @Singleton
     @Provides
     fun providePageRepository(
@@ -113,4 +115,9 @@ object StoreModule {
         storage, dataBaseManager,
         dataProvider, apiManager,
         pageModel, pageProvider, pagePresenter,shareManager, snsManager, topic, missionManager, interceptor)
+
+    @Singleton
+    @Provides
+    fun provideViewModelFactory(repository: PageRepository): ViewModelFactory = ViewModelFactory(repository)
+
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent_black70"
+    >
+    <com.skeleton.component.view.RoundView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:radius="@dimen/radius_light"
+        android:layout_gravity="center"
+        android:background="@color/app_white"
+        android:elevation="@dimen/margin_tiny"
+        android:padding="@dimen/margin_regular"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/fontRegular"
+                android:textSize="@dimen/font_thin"
+                android:text="@string/alertSelectProfile"
+                android:textColor="@color/app_grey"
+                />
+            <GridLayout
+                android:id="@+id/listBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:columnCount="3"
+                android:layout_marginVertical="@dimen/margin_medium"
+                />
+            <com.skeleton.component.button.FillButton
+                android:id="@+id/btnConfirm"
+                android:layout_width="150dp"
+                android:layout_height="@dimen/button_medium"
+                android:layout_gravity="center"
+                android:title="@string/confirm"
+                android:radius="@dimen/radius_lightExtra"
+                app:selected="true"
+                />
+        </LinearLayout>
+
+    </com.skeleton.component.view.RoundView>
+</FrameLayout>

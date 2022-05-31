@@ -75,7 +75,7 @@ interface MissionApi {
     @Headers("Content-Type: application/json;charset=UTF-8")
     @POST(Api.Mission.missions)
     suspend fun post(
-        @Body params: Map<String, Any>
+        @Body params: Map<String, @JvmSuppressWildcards Any>
     ): ApiResponse<MissionData>?
 
     @GET(Api.Mission.summary)

@@ -67,16 +67,17 @@
          </LinearLayout>
       </HorizontalScrollView>
       <LinearLayout
+          android:id="@+id/locationBox"
           android:orientation="horizontal"
           android:layout_weight="0"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_gravity="center"
+          android:maxWidth = "50dp"
           android:paddingEnd="@dimen/margin_regular"
           >
          <com.skeleton.component.view.RoundView
              android:id="@+id/iconFlag"
-
              android:layout_width="@dimen/icon_regular"
              android:layout_height="@dimen/icon_regular"
              android:radius="@dimen/icon_regularHalf"
@@ -149,7 +150,6 @@
           android:layout_width="match_parent"
           android:layout_height="@dimen/button_medium"
           android:layout_weight="1"
-          android:title="@string/btnStart"
           android:radius="@dimen/radius_lightExtra"
           android:layout_marginEnd="@dimen/margin_thin"
           app:buttonType="stroke"
@@ -157,12 +157,12 @@
           />
       <com.skeleton.component.button.FillButton
           android:id="@+id/btnB"
-          android:layout_width="211dp"
+          android:layout_width="match_parent"
           android:layout_height="@dimen/button_medium"
-          android:layout_weight="0"
-          android:title="@string/btnStart"
+          android:layout_weight="1"
           android:radius="@dimen/radius_lightExtra"
           app:buttonType="stroke"
+          app:defaultImage="@drawable/ic_stop"
           app:selected="true"
           />
    </LinearLayout>

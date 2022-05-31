@@ -11,6 +11,7 @@ import com.raftgroup.pupping.store.api.rest.GeoData
 import com.raftgroup.pupping.store.api.rest.MissionData
 import com.raftgroup.pupping.store.api.rest.PetData
 import com.raftgroup.pupping.store.api.rest.UserData
+import com.raftgroup.pupping.store.mission.Mission
 import com.skeleton.sns.SnsType
 import com.skeleton.sns.SnsUser
 import java.util.*
@@ -127,24 +128,24 @@ class User {
         if (type != null && userId != null){
             snsUser = SnsUser(type, userId, "")
         }
-        finalGeo = data.geos?.first()
+        data.geos?.let {
+            if (it.isEmpty()) return@let
+            finalGeo = it.first()
+        }
+
         return this
     }
-    /*
-    fun missionCompleted(_ mission:Mission) {
-        let point =  mission.lv.point()
-        self.point += point
-        self.mission += 1
-        self.pets.filter{$0.isWith}.forEach{
-            $0.update(exp: point)
+
+    fun missionCompleted(mission:Mission) {
+        val point =  mission.lv.point()
+        this.point.value = this.point.value?.plus(point)
+        this.mission.value = this.mission.value?.plus(1)
+        pets.value?.let{pets->
+            pets.filter{it.isWith}.forEach{
+                it.update(point)
+            }
         }
-        UserCoreData().update(
-            data: ModifyUserData(
-                    point: self.point,
-        mission: self.mission)
-        )
     }
-    */
 
 
     fun setData(data:List<PetData>, isMyPet:Boolean = true){

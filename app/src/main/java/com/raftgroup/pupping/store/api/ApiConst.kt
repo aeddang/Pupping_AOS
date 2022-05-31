@@ -42,7 +42,11 @@ object Api {
         private const val PATH = "album"
         const val pictures = "$VERSION_V1/$PATH/pictures"
         const val picturesThumbsup = "${Album.pictures}/thumbsup"
+    }
 
+    object Vision {
+        private const val PATH = "vision"
+        const val detect = "$VERSION_V1/$PATH/images/detecthumanwithdog"
     }
 }
 
@@ -94,5 +98,6 @@ enum class ApiType{
     GetWeather,
     GetMission, SearchMission, CompleteMission, CompleteWalk, GetMissionSummary,
     GetPet, GetPets, RegistPet, UpdatePetImage, UpdatePet, DeletePet,
-    GetAlbumPictures, RegistAlbumPicture, DeleteAlbumPictures, UpdateAlbumPictures
+    GetAlbumPictures, RegistAlbumPicture, DeleteAlbumPictures, UpdateAlbumPictures,
+    CheckHumanWithDog
 }
