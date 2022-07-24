@@ -57,9 +57,11 @@
         <entry key="app/src/main/res/drawable/ic_splash_logo.xml" value="0.236" />
         <entry key="app/src/main/res/drawable/ic_union.xml" value="0.106" />
         <entry key="app/src/main/res/drawable/ic_vector.xml" value="0.106" />
+        <entry key="app/src/main/res/drawable/ic_warning.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/ic_waypoint_header.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/ic_waypointheader.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/ic_woman.xml" value="0.225" />
+        <entry key="app/src/main/res/drawable/ic_woman_with_dog.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/img_empty_dog_profile.xml" value="0.1965" />
         <entry key="app/src/main/res/drawable/img_empty_user_profile.xml" value="0.1965" />
         <entry key="app/src/main/res/drawable/img_emtpy_dog_profile_card.xml" value="0.1965" />

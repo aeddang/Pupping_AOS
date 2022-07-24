@@ -179,7 +179,7 @@ dependencies {
     /**
      * Memory leak
      */
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:2.8.1"
+    //debugImplementation "com.squareup.leakcanary:leakcanary-android:2.8.1"
 
     /**
      * Sns
@@ -193,6 +193,6 @@ dependencies {
     /**
      * Google Map
      */
-    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation 'com.google.android.libraries.places:places:2.6.0'
 }

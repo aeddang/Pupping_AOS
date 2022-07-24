@@ -402,9 +402,7 @@ abstract class ExoVideoPlayer :  PageComponent, PlayBack,
     override fun onTimelineChanged(timeline: Timeline, reason: Int) {
         Log.d(appTag, "onTimelineChanged $timeline")
     }
-    override fun onTracksChanged( trackGroups: TrackGroupArray, trackSelections: TrackSelectionArray) {
-        Log.d(appTag, "onTracksChanged $trackGroups")
-    }
+
 
     @CallSuper
     override fun onSeekProcessed() {
